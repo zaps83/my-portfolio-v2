@@ -47,5 +47,32 @@ export default {
         title: 'Body',
         type: 'blockContent',
       },
+      {
+        name: 'relatedPosts',
+        title: 'Related Posts',
+        type: 'array',
+        of: [
+          {
+            type: 'relatedPost',
+            name: 'relatedPost',
+            title: 'Related Post',
+          }
+        ]
+      },
+      {
+        name: 'visitSite',
+        title: 'Visit Site',
+        type: 'url'
+      },
+      {
+        name: 'viewCode',
+        title: 'View Code',
+        type: 'url'
+      },
+      {
+        name: 'watchDemo',
+        title: 'Watch Demo',
+        type: 'string'
+      }
     ],
 }
