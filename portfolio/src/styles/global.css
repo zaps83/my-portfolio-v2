@@ -1,0 +1,13 @@
+:root {
+    --clr-light: #fafffe;
+    --clr-dark: #070638;
+    --clr-secondary: #3d598a;
+    --clr-accent: #60fcfc;
+
+}
+
+html, body {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+}
+
