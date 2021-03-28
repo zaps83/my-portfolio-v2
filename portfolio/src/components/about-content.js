@@ -1,6 +1,5 @@
 import React from 'react'
 import './styles/home-about.css'
-import { Link } from "gatsby"
 
 export default function HomeAbout () {
 

@@ -5,7 +5,7 @@ import Player from '../components/player'
 import BlockContent from '@sanity/block-content-to-react'
 import { serializer } from '../components/serializer'
 
-export default () => (
+const Project = () => (
     <StaticQuery 
         query={graphql`
         {
@@ -60,12 +60,12 @@ export default () => (
                                 </div>
                                 <div className='project-buttons'>
                                     <div className='visit-site project-button-container'>
-                                        <a target='_blank' href={project.visitSite} className='visit-site-link project-button'>
+                                        <a target='_blank' rel="noreferrer" href={project.visitSite} className='visit-site-link project-button'>
                                             Visit Site
                                         </a>
                                     </div>
                                     <div className='view-code project-button-container'>
-                                        <a target='_blank' href={project.viewCode} className='view-code-link project-button'>
+                                        <a target='_blank' rel="noreferrer" href={project.viewCode} className='view-code-link project-button'>
                                             View Code
                                         </a>
                                     </div>
@@ -116,3 +116,5 @@ export default () => (
         )}
     />
 )
+
+export default Project

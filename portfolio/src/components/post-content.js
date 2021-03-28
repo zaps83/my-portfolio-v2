@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, StaticQuery, Link } from "gatsby"
 import './styles/home-post.css'
 
-export default () => (
+const Post = () => (
 
     <StaticQuery
         query={graphql`
@@ -50,3 +50,5 @@ export default () => (
         )}
     />
 )
+
+export default Post

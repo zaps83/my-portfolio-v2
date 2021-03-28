@@ -5,6 +5,7 @@ import './styles/post.css'
 import Layout from '../components/layout'
 import { serializer } from '../components/serializer'
 
+
 export const query = graphql`
 query ($slug: String) {
     sanityPost(slug: {current: {eq: $slug}}) {
@@ -28,11 +29,11 @@ query ($slug: String) {
 }
 `
 
-export default ({ data }) => (
+const SinglePage = ({ data }) => (
     <Layout>
-        <div>
+        <div className='single-post-page'>
             <h1>{data.sanityPost.title}</h1>
-            <img src={data.sanityPost.mainImage?.asset.fluid.src} />
+            <img src={data.sanityPost.mainImage?.asset.fluid.src} alt='' />
             <BlockContent 
                 className='p-text'
                 blocks={data.sanityPost._rawBody} 
@@ -44,3 +45,5 @@ export default ({ data }) => (
     </Layout>
 
 )
+
+export default SinglePage

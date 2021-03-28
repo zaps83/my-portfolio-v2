@@ -1,19 +1,6 @@
-.post-text {
-    color: white;
-    border: solid white;
+.single-post-page {
+    background-color: var(--clr-light);
+    margin: 0 10em;
+    padding: 0 5em;
 }
 
-.post-text-r {
-    color: red;
-    border: solid red;
-}
-
-.p-text {
-    color: yellow;
-    border: yellow;
-}
-
-.p-text-o {
-    color: orange;
-    border: orange;
-}

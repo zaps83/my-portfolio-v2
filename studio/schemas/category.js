@@ -10,7 +10,7 @@ export default {
     },
     {
       name: 'description',
-      title: 'Dription',
+      title: 'Description',
       type: 'text',
     },
   ],

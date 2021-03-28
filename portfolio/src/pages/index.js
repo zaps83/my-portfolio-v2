@@ -10,7 +10,7 @@ export default function App() {
     <Layout>
       <About />
       <Posts />
-      <About />
+      <Projects />
     </Layout>
   )
 }

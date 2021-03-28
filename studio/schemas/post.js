@@ -57,6 +57,11 @@ export default {
       title: 'Body',
       type: 'blockContent',
     },
+    {
+      name: 'leetcodeUrl',
+      type: 'url',
+      title: 'LeetCode Url'
+    }
   ],
 
   preview: {
