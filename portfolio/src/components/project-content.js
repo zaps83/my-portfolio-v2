@@ -1,8 +1,7 @@
 import React from 'react'
-import './styles/home-project.css'
-import { graphql, StaticQuery, Link } from "gatsby"
+import * as S from './styles/project-content'
+import { graphql, StaticQuery } from "gatsby"
 import Player from '../components/player'
-import BlockContent from '@sanity/block-content-to-react'
 import { serializer } from '../components/serializer'
 
 const Project = () => (
@@ -46,72 +45,48 @@ const Project = () => (
         `}
         render={data => (
             <>
-            <h1 className='project-page-title'>Projects</h1>
-            <div className='project-page-container'>
-                <div className='project-grid'>
+            <S.Title>Projects</S.Title>
+            <S.Container>
+                <S.Grid>
                     {data.allSanityProject.edges.map(({ node: project }) => (
-                        <div className='project-container'>
-                            <div className='project-title-container'>
-                                <h2 className='project-title'>{project.title}</h2>
-                            </div>
-                            <div className='img-and-buttons'>
-                                <div className='project-img-container'>
-                                    <img className='project-image' src={project.mainImage.asset.fluid.src} alt='' />              
-                                </div>
-                                <div className='project-buttons'>
-                                    <div className='visit-site project-button-container'>
-                                        <a target='_blank' rel="noreferrer" href={project.visitSite} className='visit-site-link project-button'>
-                                            Visit Site
-                                        </a>
-                                    </div>
-                                    <div className='view-code project-button-container'>
-                                        <a target='_blank' rel="noreferrer" href={project.viewCode} className='view-code-link project-button'>
-                                            View Code
-                                        </a>
-                                    </div>
-                                    <div className='watch-demo project-button-container'>
+                        <S.ProjectContainer>
+                            <S.ProjectTitle>
+                                {project.title}
+                            </S.ProjectTitle>
+                            <S.InnerContainer>
+                                    <S.Image src={project.mainImage.asset.fluid.src} alt='' />
+                                <S.Buttons>
+                                    <S.Button target='_blank' rel="noreferrer" href={project.visitSite} >
+                                        Visit Site
+                                    </S.Button>
+                                    <S.Button target='_blank' rel="noreferrer" href={project.viewCode} >
+                                        View Code
+                                    </S.Button>
+                                    <S.Button>
                                         <Player>
                                             <Player.Button />
                                             <Player.Video src={`media/${project.watchDemo}`} />
                                         </Player>
-                                    </div>
-                   
-                                    
-                                </div>
-                            </div>
-                            <BlockContent 
-                                className='project-description'
+                                    </S.Button>
+                                </S.Buttons>
+                            </S.InnerContainer>
+                            <S.Description 
                                 blocks={project._rawBody} 
                                 serializers={serializer} 
                                 projectId='ldqg7s9d' 
                                 dataset='production'/>
-                            <div className='read-about'>
                                 {project.relatedPosts.length ? (
-                                    <h3 className='read-about-title'>Read About This Project</h3>
+                                    <S.ReadAbout>Read More About This Project</S.ReadAbout>
                                 ) : null}
-                                <div className='read-about-container'>
+                                <S.ReadAboutLinks>
                                     {project.relatedPosts.map(({ postInfo }) => (
-                                        <Link className='read-about-link' to={postInfo.postLink}>{postInfo.postName}</Link>
+                                        <S.ReadAboutLink to={postInfo.postLink}>{postInfo.postName}</S.ReadAboutLink>
                                     ))}    
-                                </div>  
-                            </div>
-                        </div>
-
-
-
-
-
-
-/*                         <a href='#' target='_blank' className='project-container'>
-                            <img className='project-image' src={project.mainImage.asset.fluid.src} alt='' />              
-                            <div className='project-title-container'>
-                                <h2 className='project-title'>{project.title}</h2>
-                            </div>
-                        </a> */
+                                </S.ReadAboutLinks>
+                        </S.ProjectContainer>
                     ))}
-                </div>
-                
-            </div>
+                </S.Grid>
+            </S.Container>
         </>
         )}
     />

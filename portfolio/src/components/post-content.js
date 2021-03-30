@@ -1,6 +1,6 @@
 import React from 'react'
-import { graphql, StaticQuery, Link } from "gatsby"
-import './styles/home-post.css'
+import { graphql, StaticQuery } from "gatsby"
+import * as S from './styles/post-content'
 
 const Post = () => (
 
@@ -21,6 +21,8 @@ const Post = () => (
                                 }
                             }
                         }
+                        problemType
+                        difficulty
                     }
                 }
             }
@@ -29,23 +31,23 @@ const Post = () => (
     `}
         render={data => (
         <>
-            <h1 className='post-page-title'>Posts</h1>
-            <div className='post-page-container'>
-                <div className='post-grid'>
+            <S.Title>Posts</S.Title>
+            <S.Container>
+                <S.Grid>
                     {data.allSanityPost.edges.map(({ node: post, index }) => (
-                        <Link to={'/post/' + post.slug.current} key={post.slug.current}>
-                            <span>
-                                <span className='post-container' key={index}>
-                                    <img className='post-image' src={post.mainImage?.asset.fluid.src} alt='' />
-                                    <span className='post-title-container'>
-                                        <h2 className='post-title'>{post.title}</h2>              
-                                    </span>
-                                </span>
-                            </span> 
-                        </Link>  
+                        <S.GatsbyLink to={'/post/' + post.slug.current} key={post.slug.current}>
+                                <S.PostContainer key={index}>
+                                    <S.Image src={post.mainImage?.asset.fluid.src} alt='' />
+                                    <S.PostInfo>
+                                        <S.PostTitle>{post.title}</S.PostTitle>
+                                        <S.Difficulty>{post.difficulty}</S.Difficulty>
+                                        <S.ProblemType>{post.problemType}</S.ProblemType>          
+                                    </S.PostInfo>
+                                </S.PostContainer>
+                        </S.GatsbyLink>  
                     ))}
-                </div>
-            </div>
+                </S.Grid>
+            </S.Container>
         </>
         )}
     />

@@ -1,36 +1,38 @@
-.post-page-container {
-    margin: 0 auto;
-    width: 100%;
-    display: flex;
-    justify-content: center; 
-}
+import styled from 'styled-components/macro'
+import { Link } from 'gatsby'
 
-.post-page-title {
+export const Title = styled.h1`
     display: flex;
     justify-content: center;
     color: var(--clr-light);
     margin: 1rem;
-}
+`
 
-.post-grid {
+export const Container = styled.div`
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+`
+
+export const Grid = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-}
 
-@media (max-width: 900px) {
-    .post-grid {
+    @media (max-width: 900px) {
         grid-template-columns: 1fr 1fr;
     }
-}
-
-@media (max-width: 640px) {
-    .post-grid {
+    
+    @media (max-width: 640px) {
         grid-template-columns: 1fr;
     }
-}
+`
 
+export const GatsbyLink = styled(Link)`
 
-.post-container {
+`
+
+export const PostContainer = styled.span`
     display: block;
     position: relative;
     border: solid var(--clr-accent);
@@ -39,31 +41,33 @@
     height: 12rem;
     width: 12rem;
     margin: 2rem;
+`
 
-}
-
-.post-image {
+export const Image = styled.img`
     width: 100%;
     height: 100%;
     position: absolute;
     object-fit: cover;
     border-radius: 1rem;
-}
+`
 
-.post-title-container {
-    position: absolute;
-    height: 100%;
-    top: 9rem;
-    right: -.5rem;
-    height: 4rem;
-    margin: 0 1rem;
-}
+export const PostInfo = styled.div`
 
-.post-title {
+`
+
+export const PostTitle = styled.h2`
     text-decoration: none;
     background-color: rgba(61, 89, 138, .75);
     color: var(--clr-light);
     padding: .6rem 1rem;
     border-radius: .5rem;
     font-size: 1rem;
-}
+`
+
+export const Difficulty = styled.div`
+
+`
+
+export const ProblemType = styled.div`
+
+`

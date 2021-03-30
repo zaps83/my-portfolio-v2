@@ -1,43 +1,42 @@
-import React from 'react'
-import { SocialIcon } from 'react-social-icons'
-import './styles/navbar.css'
-import { Link } from 'gatsby'
+import React, { useState } from 'react'
+import * as S from './styles/navbar'
 
+export default function NavBar ({ theme, setTheme, children }) {
 
-export default function NavBar () {
+    const [active, setActive] = useState('home')
+
+    function changeTab(tab) {
+        setActive(tab)
+    }
 
     return (
-        <header className='header'>
-            <div className='nav-container'>
-                <nav className='nav'>
-                    <Link 
-                        className='nav-link'
-                        activeClassName='active'
+        <>
+        <S.Header>
+            <S.NavContainer>
+                <S.Nav>
+                    <S.GatsbyLink onClick={() => changeTab('home')} active={active} tab={'home'}
                         to='/'>Home
-                    </Link>
-                    <Link 
-                        className='nav-link'
-                        activeClassName='active'
+                    </S.GatsbyLink>
+                    <S.GatsbyLink onClick={() => changeTab('about')} active={active} tab={'about'}
                         to='/about'>About
-                    </Link>
-                    <Link 
-                        className='nav-link'
-                        activeClassName='active'
+                    </S.GatsbyLink>
+                    <S.GatsbyLink onClick={() => changeTab('post')} active={active} tab={'post'}
                         to='/post'>Posts
-                    </Link>
-                    <Link 
-                        className='nav-link'
-                        activeClassName='active'
+                    </S.GatsbyLink>
+                    <S.GatsbyLink onClick={() => changeTab('project')} active={active} tab={'project'}
                         to='/project'>Projects
-                    </Link>
-                </nav>
-                <div className='social-container'>
-                    <SocialIcon url='https://github.com/zaps83' target='_blank' className='social-link' fgColor='#fff' style={{height: 35, width: 35}} />
-                    <SocialIcon url='https://www.linkedin.com/in/steven-zapart-59777a152/' className='social-link' target='_blank' fgColor='#fff'  style={{height: 35, width: 35}} />
-                    <a href='/media/Test_PDF.pdf' download='steven-zapart-resume.pdf' className='resume-link'>Resume</a>
-                </div>
-            </div>
-        </header>
+                    </S.GatsbyLink>
+                </S.Nav>
+                <S.SocialContainer>
+                    <S.SocialIconLink url='https://github.com/zaps83' target='_blank' fgColor='#fff' style={{height: 35, width: 35}} />
+                    <S.SocialIconLink url='https://www.linkedin.com/in/steven-zapart-59777a152/' target='_blank' fgColor='#fff'  style={{height: 35, width: 35}} />
+                    <S.ResumeLink href='/media/Test_PDF.pdf' download='steven-zapart-resume.pdf'>Resume</S.ResumeLink>
+                    <S.Splash theme={theme} setTheme={setTheme} />
+                </S.SocialContainer>
+            </S.NavContainer>
+        </S.Header>
+        {children}
+    </>
 
     )
 }

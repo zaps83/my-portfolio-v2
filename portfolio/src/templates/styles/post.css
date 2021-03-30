@@ -4,3 +4,19 @@
     padding: 0 5em;
 }
 
+.single-post-top-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.single-post-bottom-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 5em;
+}
+
+.single-post-img {
+    height: 4em;
+}

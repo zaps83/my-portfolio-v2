@@ -9,13 +9,13 @@ export default {
       type: 'string',
     },
     {
-      name: 'subtitle',
-      title: 'Sub-Title',
+      name: 'difficulty',
+      title: 'Difficulty',
       type: 'string',
     },
     {
-      name: 'description',
-      title: 'Description',
+      name: 'problemType',
+      title: 'Problem Type',
       type: 'string',
     },
     {
