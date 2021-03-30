@@ -5,15 +5,21 @@ import { createGlobalStyle } from 'styled-components'
 import { ThemeProvider } from 'styled-components'
 
 const Light = {
-  main: '#000000',
-  secondary: '#ffffff',
-  accent: '',
+  main: '#ffffff',
+  secondary: '#000000',
+  accent: '#FF8300',
+  accent2: '#faf752',
+  hover: '#eeeeee',
+  mode: '#26f7fd'
 }
 
 const Dark = {
-  main: '#ffffff',
-  secondary: '#000000',
-  accent: '',
+  main: '#111111',
+  secondary: '#ffffff',
+  accent: '#26f7fd',
+  accent2: '#529bfa',
+  hover: '#333333',
+  mode: '#faf752'
 }
 
 const themes = {
@@ -34,7 +40,7 @@ export const GlobalStyles = createGlobalStyle`
 
 export default function Layout({ children }) {
 
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState('light')
 
   return (
     <>

@@ -1,5 +1,4 @@
 import React from 'react'
-import './styles/home-about.css'
 import * as S from './styles/about-content'
 
 export default function HomeAbout () {
