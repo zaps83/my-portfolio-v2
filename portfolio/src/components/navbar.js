@@ -29,19 +29,20 @@ export default function NavBar ({ theme, setTheme, children }) {
         })
     }
 
-    const url = window.location.href
-
-    function pageIdentifier(url) {
-        let page = url.match(/(?<=localhost:8000).*/g)[0] // change this once I know the real name of the website
-        let beforeSlash = /^\/[^\/]+/g
-        if (page === '' || page === '/') {
-          return '/'
-        } else {
-          return page.match(beforeSlash)[0]
-        }
-      }
-    
     useEffect(() => {
+        
+        const url = window.location.href
+
+        function pageIdentifier(url) {
+            let page = url.match(/(?<=(localhost:8000|zapscode.netlify.app)).*/g)[0]
+            let beforeSlash = /^\/[^\/]+/g
+            if (page === '' || page === '/') {
+            return '/'
+            } else {
+            return page.match(beforeSlash)[0]
+            }
+        }
+
         setActive(pageIdentifier(url))
     }, [url])
 
