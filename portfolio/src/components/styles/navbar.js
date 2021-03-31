@@ -1,8 +1,6 @@
 import styled from 'styled-components/macro'
 import React from 'react'
-
 import { Link } from 'gatsby'
-import { SocialIcon as ReactIcon } from 'react-social-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
     faSun as SunIcon,
@@ -10,7 +8,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 export const Header = styled.div`
-    background-color: ${props => props.theme.main};
     border-bottom: .1em solid #999999;
     padding: 0 0 .5em;
     margin: 1em;
@@ -23,18 +20,41 @@ export const NavContainer = styled.div`
     width: 100%;
 `
 
+export const NavText = styled.div`
+    @media (max-width: 500px) {
+        font-size: .5em;
+    }
+`
+
 export const Nav = styled.nav`
     display: flex;
     margin: 0;
 `
 
 export const Inner = styled.div`
-    border-radius: 1.5em;
+    border-radius: 20em;
     padding: .2em 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
 `
 
-export const NavIcon = styled(FontAwesomeIcon)`
-    margin: 0 .25em 0 0;
+export const GatsbyInner = styled.div`
+    border-radius: 20em;
+    padding: .2em 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+
+    @media (max-width: 420px) {
+        flex-direction: column;
+    }
+`
+
+export const Icon = styled(FontAwesomeIcon)`
+    margin: 0 .25em 0;
 `
 
 export const GatsbyLink = styled(Link)`
@@ -47,9 +67,27 @@ export const GatsbyLink = styled(Link)`
     text-decoration: none;
     color: ${props => props.theme.secondary};
 
+    &:hover ${GatsbyInner} {
+        background-color: ${props => props.theme.hover};
+    }
+`
+
+export const SocialLink = styled.a`
+    display: inline-flex;
+    align-items: left;
+    padding: .5rem 0;
+    margin: 0;
+    text-decoration: none;
+    color: ${props => props.theme.secondary};
+
     &:hover ${Inner} {
         background-color: ${props => props.theme.hover};
     }
+`
+
+export const Links = styled.nav`
+    display: flex;
+    margin: 0;
 `
 
 export const RightContainer = styled.div`
@@ -63,48 +101,9 @@ export const RightContainer = styled.div`
     }
 `
 
-export const SocialContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    border: none;
-
-    @media (max-width: 900px) {
-        padding: 0 1em 0;
-        border-left: .1em solid #999999;
-    }
-`
-
-export const SocialIconLink = styled(ReactIcon)`
-    display: inline-flex;
-    padding: 0;
-    border-radius: 1rem;
-    color: #3d598a;
-    margin: 0 .5em 0 0;
-`
-
-export const ResumeIcon = styled(FontAwesomeIcon)`
+export const SocialIconLink = styled(FontAwesomeIcon)`
     margin: 0 .5em 0 -.1em;
     font-size: 25px;
-`
-
-export const ResumeLink = styled.a`
-    display: inline-flex;
-    border-radius: 1.5em;
-    padding: .2em 1em;
-    background-color: ${(props) => props.theme.main};
-    color: ${(props) => props.theme.secondary};
-    text-decoration: none;
-
-    &:hover {
-        background-color: ${props => props.theme.hover};
-    }
-
-    @media (max-width: 1000px) {
-        padding: .2em .5em;
-    }
 `
 
 export const ToggleContainer = styled.div`
@@ -116,33 +115,16 @@ export const ToggleContainer = styled.div`
     padding: 0 0 0 1em;
 `
 
-const Toggle = styled.button`
+export const OpenDropdown = styled(FontAwesomeIcon)`
     cursor: pointer;
-    height: 1.75em;
-    width: 1.75em;   
-    border-radius: 50%;
-    margin: 0;
-    border: none;
-    background-color: ${props => props.theme.secondary};
-    color: ${props => props.theme.main};
-    &:focus {
-        outline: none;
-    }
-    transition: all .5s ease;
+
 `
 
-export const Picture = styled(FontAwesomeIcon)`
-    background: url(${({ src }) => src});
-    background-size: contain;
-    border: 0;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-`
-
-export const Group = styled.div`
+export const Group = styled.a`
     display: flex;
     align-items: center;
+    text-decoration: none;
+    color: ${props => props.theme.secondary}
 `
 
 export const TextLink = styled.p`
@@ -158,46 +140,33 @@ export const TextLink = styled.p`
     }
 `
 
+export const DropdownText = styled.div`
+    @media (max-width: 1000px) {
+        margin-left: .75em;
+    }
+`
+
 export const Dropdown = styled.div`
     display: none;
     background-color: ${props => props.theme.main};
     border: .1em solid #999999;
     position: absolute;
     z-index: 99;
-    padding: 10px;
-    width: 140px;
-    top: 32px;
-    right: 0px;
-    ${Group}: last-of-type ${TextLink} {
-        cursor: pointer;
-    }
-    ${Group} {
-        margin-bottom: 10px;
-        &:last-of-type {
-            margin-bottom: 0;
-        }
-        ${TextLink} {
-            cursor: pointer;
-        }
-    }
-    button {
-        margin-right: 10px;
-    }
-    p {
-        font-size: 12px;
-        margin-bottom: 0;
-        margin-top: 0;
+    padding: .25em;
+    width: 10em;
+    top: 2.25em;
+    right: 0;
+
+    @media (max-width: 420px) {
+        top: 2.75em;
     }
 `
 
 export const DropdownContainer = styled.div`
     display: none;
     align-items: center;
-    margin-left: 20px;
     position: relative;
-    button {
-        cursor: pointer;
-    }
+    padding: 0 1em;
     @media (max-width: 1000px) {
         display: flex;
     }
@@ -207,7 +176,42 @@ export const DropdownContainer = styled.div`
     }
 `
 
+const Toggle = styled.button`
+    display: inline-flex;
+    align-items: left;
+    padding: .5rem 0;
+    margin: 0;
+    text-decoration: none;
+    color: ${props => props.theme.secondary};
+    border: none;
+    background-color: ${props => props.theme.main};
+    position: relative;
+    &:focus {
+        outline: none;
+    }
+    &:hover ${Inner} {
+        @media (max-width: 1000px) {
+            background-color: ${props => props.theme.hover};
+        }
+    }
+    @media (max-width: 1000px) {
+        border-top: .1em solid #999999;
+    }
+`
 
+const DarkMode = styled.div`
+    display: inline;
+    width: 6em;
+
+    @media (min-width: 1000px) {
+        display: none;
+    }
+    &:hover ${Inner} {
+        @media (max-width: 1000px) {
+            background-color: ${props => props.theme.hover};
+        }
+    }
+`
 
 export function Splash(props) {
 
@@ -219,11 +223,14 @@ export function Splash(props) {
         }
     }
 
-    const icon = props.theme === "light" ? <FontAwesomeIcon icon={MoonIcon} /> : <FontAwesomeIcon icon={SunIcon} />
+    const icon = props.theme === "light" ? MoonIcon : SunIcon
 
     return (
         <Toggle onClick={() => changeTheme()}>
-            {icon}
+            <Inner>
+                <Icon icon={icon} />
+                <DarkMode>Dark Mode</DarkMode>
+            </Inner>
         </Toggle>
     )
 }

@@ -35,6 +35,7 @@ export const GlobalStyles = createGlobalStyle`
         background-color: ${props => props.theme.main};
         color: ${props => props.theme.secondary};
         font-size: 16px;
+        transition: all .5s ease;
     }
 `
 
