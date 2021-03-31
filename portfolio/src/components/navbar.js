@@ -8,8 +8,6 @@ import {
     faFileDownload as DownloadIcon,
  } from '@fortawesome/free-solid-svg-icons'
 
-
-
 export default function NavBar ({ theme, setTheme, children }) {
 
     const [active, setActive] = useState('')
@@ -29,9 +27,10 @@ export default function NavBar ({ theme, setTheme, children }) {
         })
     }
 
-    useEffect(() => {
-        
-        const url = window.location.href
+    let url = 'http://localhost:8000/'
+
+    useEffect(() => {        
+        if (typeof window !== `undefined`) url = window.location.href
 
         function pageIdentifier(url) {
             let page = url.match(/(?<=(localhost:8000|zapscode.netlify.app)).*/g)[0]
@@ -39,14 +38,12 @@ export default function NavBar ({ theme, setTheme, children }) {
             if (page === '' || page === '/') {
             return '/'
             } else {
-            return page.match(beforeSlash)[0]
+                page = page.match(beforeSlash)[0]
+                return page
             }
         }
-
         setActive(pageIdentifier(url))
-    }, [url])
-
-    console.log('active', active)
+    }, [window.location.href])
 
     return (
         <>
@@ -56,6 +53,7 @@ export default function NavBar ({ theme, setTheme, children }) {
                     {tabs.map(({ display, page, icon}) => {
                         return (
                             <S.GatsbyLink 
+                            onClick={() => setActive(page)}
                                 active={active} 
                                 tab={page}
                                 to={page}>
@@ -116,12 +114,13 @@ export default function NavBar ({ theme, setTheme, children }) {
                             </S.ResumeLink>
                         </S.Group>
                         <S.Group>
-                            <S.Splash theme={theme} setTheme={setTheme} />Dark Mode
+                                <S.Splash theme={theme} setTheme={setTheme} />Dark Mode
                         </S.Group>
                     </S.Dropdown>
                 </S.DropdownContainer>
             </S.NavContainer>
         </S.Header>
+
         {children}
     </>
 

@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro'
 import React from 'react'
+
 import { Link } from 'gatsby'
 import { SocialIcon as ReactIcon } from 'react-social-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -162,6 +163,7 @@ export const Dropdown = styled.div`
     background-color: ${props => props.theme.main};
     border: .1em solid #999999;
     position: absolute;
+    z-index: 99;
     padding: 10px;
     width: 140px;
     top: 32px;
@@ -206,7 +208,9 @@ export const DropdownContainer = styled.div`
 `
 
 
+
 export function Splash(props) {
+
     function changeTheme() {
         if (props.theme === "light") {
             props.setTheme("dark")

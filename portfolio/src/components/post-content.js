@@ -2,8 +2,9 @@ import React from 'react'
 import { graphql, StaticQuery } from "gatsby"
 import * as S from './styles/post-content'
 
-const Post = () => (
+const Post = (props) => (
 
+    
     <StaticQuery
         query={graphql`
         {
@@ -35,7 +36,10 @@ const Post = () => (
             <S.Container>
                 <S.Grid>
                     {data.allSanityPost.edges.map(({ node: post, index }) => (
-                        <S.GatsbyLink to={'/post/' + post.slug.current} key={post.slug.current}>
+                        <S.GatsbyLink 
+                            to={'/post/' + post.slug.current} 
+                            key={post.slug.current}
+                        >
                                 <S.PostContainer key={index}>
                                     <S.Image src={post.mainImage?.asset.fluid.src} alt='' />
                                     <S.PostInfo>
