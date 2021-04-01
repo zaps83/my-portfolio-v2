@@ -41,7 +41,7 @@ export default function NavBar ({ theme, setTheme, children }) {
     let url = 'http://localhost:8000/'
     
     useEffect(() => {        
-        if (typeof window !== `undefined`) url = window.location.href
+        //if (typeof window !== `undefined`) url = window.location.href
 
         function pageIdentifier(url) {
             let page = url.match(/(?<=(localhost:8000|zapscode.netlify.app)).*/g)[0]
@@ -115,6 +115,12 @@ export default function NavBar ({ theme, setTheme, children }) {
             </S.NavContainer>
         </S.Header>
         {children}
+        <S.Footer>
+            <S.Links>
+                {LinkTabs}
+            </S.Links>
+            <S.Email>Email me at steven.zapart@gmail.com</S.Email>
+        </S.Footer>
     </>
 
     )

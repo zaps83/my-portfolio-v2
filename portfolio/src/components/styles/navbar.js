@@ -54,7 +54,7 @@ export const GatsbyInner = styled.div`
 `
 
 export const Icon = styled(FontAwesomeIcon)`
-    margin: 0 .25em 0;
+    margin: 0 .25em;
 `
 
 export const GatsbyLink = styled(Link)`
@@ -83,11 +83,19 @@ export const SocialLink = styled.a`
     &:hover ${Inner} {
         background-color: ${props => props.theme.hover};
     }
+
+    &:last-of-type {
+        margin-right: 1.25em;
+    }
 `
 
 export const Links = styled.nav`
     display: flex;
     margin: 0;
+
+    @media (max-width: 500px) {
+        font-size: .8em;
+    }
 `
 
 export const RightContainer = styled.div`
@@ -99,11 +107,6 @@ export const RightContainer = styled.div`
     @media (max-width: 1000px) {
         display: none;
     }
-`
-
-export const SocialIconLink = styled(FontAwesomeIcon)`
-    margin: 0 .5em 0 -.1em;
-    font-size: 25px;
 `
 
 export const ToggleContainer = styled.div`
@@ -151,7 +154,7 @@ export const Dropdown = styled.div`
     background-color: ${props => props.theme.main};
     border: .1em solid #999999;
     position: absolute;
-    z-index: 99;
+    z-index: 100;
     padding: .25em;
     width: 10em;
     top: 2.25em;
@@ -177,7 +180,7 @@ export const DropdownContainer = styled.div`
 `
 
 const Toggle = styled.button`
-    display: inline-flex;
+    display: inline;
     align-items: left;
     padding: .5rem 0;
     margin: 0;
@@ -202,6 +205,7 @@ const Toggle = styled.button`
 const DarkMode = styled.div`
     display: inline;
     width: 6em;
+    text-align: left;
 
     @media (min-width: 1000px) {
         display: none;
@@ -234,3 +238,18 @@ export function Splash(props) {
         </Toggle>
     )
 }
+
+export const Footer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em;
+    padding: 1em;
+    border-top: .1em solid #999999;
+
+`
+
+export const Email = styled.div`
+    font-size: .8em;
+    margin-top: .5em;
+`

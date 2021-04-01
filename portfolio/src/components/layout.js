@@ -5,21 +5,29 @@ import { createGlobalStyle } from 'styled-components'
 import { ThemeProvider } from 'styled-components'
 
 const Light = {
-  main: '#ffffff',
+  main: '#fcfcfc',
   secondary: '#000000',
   accent: '#FF8300',
   accent2: '#faf752',
+  accent3: '#ffffff',
   hover: '#eeeeee',
-  mode: '#26f7fd'
+  mode: '#26f7fd',
+  green: '#06d444',
+  yellow: '#faea05',
+  red: '#ff4d56',
 }
 
 const Dark = {
-  main: '#111111',
+  main: '#18191A',
   secondary: '#ffffff',
   accent: '#26f7fd',
   accent2: '#529bfa',
+  accent3: '#121618',
   hover: '#333333',
-  mode: '#faf752'
+  mode: '#faf752',
+  green: ' #39ff14',
+  yellow: '#faf752',
+  red: '#ff476d',
 }
 
 const themes = {
@@ -36,6 +44,7 @@ export const GlobalStyles = createGlobalStyle`
         color: ${props => props.theme.secondary};
         font-size: 16px;
         transition: all .5s ease;
+
     }
 `
 

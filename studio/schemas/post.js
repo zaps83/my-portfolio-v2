@@ -14,9 +14,10 @@ export default {
       type: 'string',
     },
     {
-      name: 'problemType',
-      title: 'Problem Type',
-      type: 'string',
+      name: 'bullets',
+      title: 'Bullets',
+      type: 'array',
+      of:  [{type: 'string'}]
     },
     {
       name: 'slug',
@@ -51,6 +52,11 @@ export default {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'blockContent',
     },
     {
       name: 'body',
