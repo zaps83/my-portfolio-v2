@@ -1,5 +1,12 @@
 import styled from 'styled-components/macro'
 import { Link } from 'gatsby'
+import React from 'react'
+
+const Component = () => {
+    return <div>named</div>
+}
+
+export default Component
 
 export const Title = styled.h1`
     display: flex;
