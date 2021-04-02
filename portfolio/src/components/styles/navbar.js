@@ -38,6 +38,8 @@ export const Inner = styled.div`
     flex-direction: row;
     align-items: center;
     position: relative;
+    transition: all 0.2s;
+
 `
 
 export const GatsbyInner = styled.div`
@@ -47,6 +49,7 @@ export const GatsbyInner = styled.div`
     flex-direction: row;
     align-items: center;
     position: relative;
+    transition: all 0.2s;
 
     @media (max-width: 420px) {
         flex-direction: column;
@@ -116,6 +119,7 @@ export const ToggleContainer = styled.div`
     justify-content: center;
     border-left: .1em solid #999999;
     padding: 0 0 0 1em;
+
 `
 
 export const OpenDropdown = styled(FontAwesomeIcon)`
@@ -182,15 +186,22 @@ export const DropdownContainer = styled.div`
 const Toggle = styled.button`
     display: inline;
     align-items: left;
-    padding: .5rem 0;
+    padding: .5em 0;
     margin: 0;
     text-decoration: none;
     color: ${props => props.theme.secondary};
     border: none;
     background-color: ${props => props.theme.main};
     position: relative;
+    border-radius: 50%;
+    transition: all 0.2s;
     &:focus {
         outline: none;
+    }
+    &:hover {
+        @media (min-width: 1000px) {
+            background-color: ${props => props.theme.hover};
+        }
     }
     &:hover ${Inner} {
         @media (max-width: 1000px) {
@@ -199,6 +210,7 @@ const Toggle = styled.button`
     }
     @media (max-width: 1000px) {
         border-top: .1em solid #999999;
+        border-radius: 0;
     }
 `
 

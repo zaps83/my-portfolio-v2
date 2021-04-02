@@ -13,7 +13,8 @@ import {
     faGithub as GithubIcon
 } from "@fortawesome/free-brands-svg-icons";
 
-export default function NavBar ({ theme, setTheme, children }) {
+export const NavBar = ({ theme, setTheme, children, path }) => {
+    console.log('path', path)
 
     const [active, setActive] = useState('')
 
@@ -43,18 +44,18 @@ export default function NavBar ({ theme, setTheme, children }) {
     useEffect(() => {        
         //if (typeof window !== `undefined`) url = window.location.href
 
-        function pageIdentifier(url) {
-            let page = url.match(/(?<=(localhost:8000|zapscode.netlify.app)).*/g)[0]
-            if (page === '' || page === '/') {
+        function pageIdentifier(path) {
+            //let page = url.match(/(?<=(localhost:8000|zapscode.netlify.app)).*/g)[0]
+            if (path === '/') {
                 return '/'
             } else {
                 let beforeSlash = /^\/[^\/]+/g
-                return page.match(beforeSlash)[0]
+                return path.match(beforeSlash)[0]
             }
         }
 
-        setActive(pageIdentifier(url))
-    }, [])
+        setActive(pageIdentifier(path))
+    }, [path])
 
     const NavTabs = navTabs.map(({ icon, page, display }) => {
         return (

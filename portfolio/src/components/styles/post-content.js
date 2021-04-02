@@ -2,13 +2,6 @@ import styled from 'styled-components/macro'
 import { Link } from 'gatsby'
 import BlockContent from '@sanity/block-content-to-react'
 
-export const Title = styled.h1`
-    display: flex;
-    justify-content: center;
-    color: var(--clr-light);
-    margin: 1rem;
-`
-
 export const Container = styled.div`
     margin: 0 auto;
     width: 100%;
@@ -19,10 +12,11 @@ export const Container = styled.div`
 export const Grid = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin: 2em 10em;
+    margin: 0em 5em;
 
-    @media (max-width: 1400px) {
+    @media (max-width: 1300px) {
         grid-template-columns: 1fr 1fr;
+        margin: 2em 3em;
     }
     
     @media (max-width: 900px) {
@@ -45,6 +39,13 @@ export const GatsbyLink = styled(Link)`
         display: flex;
         flex-direction: column;
     }
+
+    @media (max-width: 450px) {
+        margin: 1em 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
 `
 
 export const Image = styled.div`
@@ -54,6 +55,7 @@ export const Image = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-size: 40%;
+    filter: invert(${props => props.theme.main === '#fcfcfc' ? '0' : '100%'});
     
 
     @media (max-width: 900px) {

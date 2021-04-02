@@ -1,12 +1,14 @@
 import React from 'react'
-import HomePost from '../components/post-content'
+import PostContent from '../components/post-content'
 import './styles/post.css'
+import * as S from './styles/home'
 
 export default function Post () {
 
     return (
         <>
-           <HomePost />
+            <S.Title>Posts</S.Title>
+            <PostContent page='post'/>
         </>
     )
 }

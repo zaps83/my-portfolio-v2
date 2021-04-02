@@ -1,10 +1,10 @@
 import React from 'react'
 import * as S from './styles/project-content'
 import { graphql, StaticQuery } from "gatsby"
-import Player from '../components/player'
-import { serializer } from '../components/serializer'
+import Player from './player'
+import { serializer } from './serializer'
 
-const Project = () => (
+const Project = ({ page }) => (
     <StaticQuery 
         query={graphql`
         {
@@ -43,18 +43,27 @@ const Project = () => (
           }  
           
         `}
-        render={data => (
+        render={data => {
+
+          const projectData = data.allSanityProject.edges
+          .sort((a, b) => new Date(b.node.publishedAt) - new Date(a.node.publishedAt))
+
+          const homeData = projectData.filter((value, index) => index < 2)
+
+          const currentData = page === 'home' ? homeData : projectData
+
+          return (
             <>
-            <S.Title>Projects</S.Title>
             <S.Container>
                 <S.Grid>
-                    {data.allSanityProject.edges.map(({ node: project }) => (
-                        <S.ProjectContainer>
+                    {currentData.map(({ node: project }) => {
+                      return (
+                        <S.ProjectContainer key={project.title}>
                             <S.ProjectTitle>
                                 {project.title}
                             </S.ProjectTitle>
                             <S.InnerContainer>
-                                    <S.Image src={project.mainImage.asset.fluid.src} alt='' />
+                                <S.Image image={project.mainImage.asset.fluid.src} alt='' />
                                 <S.Buttons>
                                     <S.Button target='_blank' rel="noreferrer" href={project.visitSite} >
                                         Visit Site
@@ -80,15 +89,15 @@ const Project = () => (
                                 ) : null}
                                 <S.ReadAboutLinks>
                                     {project.relatedPosts.map(({ postInfo }) => (
-                                        <S.ReadAboutLink to={postInfo.postLink}>{postInfo.postName}</S.ReadAboutLink>
+                                        <S.ReadAboutLink key={postInfo.postLink} to={postInfo.postLink}>{postInfo.postName}</S.ReadAboutLink>
                                     ))}    
                                 </S.ReadAboutLinks>
                         </S.ProjectContainer>
-                    ))}
+                    )})}
                 </S.Grid>
             </S.Container>
         </>
-        )}
+        )}}
     />
 )
 

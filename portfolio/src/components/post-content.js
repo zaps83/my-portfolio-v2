@@ -4,7 +4,7 @@ import * as S from './styles/post-content'
 import { serializer } from './serializer'
 
 
-const Post = () => (
+const PostContent = ({ page }) => (
 
     <StaticQuery
         query={graphql`
@@ -26,18 +26,27 @@ const Post = () => (
                   bullets
                   difficulty
                   _rawDescription
+                  publishedAt
                 }
               }
             }
           }
           
     `}
-        render={data => (
+        render={data => {
+            
+            const postData = data.allSanityPost.edges
+                .sort((a, b) => new Date(b.node.publishedAt) - new Date(a.node.publishedAt))
+
+            const homeData = postData.filter((value, index) => index < 3)
+
+            const currentData = page === 'home' ? homeData : postData
+
+            return (
         <>
-            <S.Title>Posts</S.Title>
             <S.Container>
                 <S.Grid>
-                    {data.allSanityPost.edges.map(({ node: post }) => (
+                    {currentData.map(({ node: post }) => (
                         <S.GatsbyLink 
                             to={'/post/' + post.slug.current} 
                             key={post.slug.current}>
@@ -63,7 +72,7 @@ const Post = () => (
                     ))}
                 </S.Grid>
                 <S.Flex>
-                {data.allSanityPost.edges.map(({ node: post }) => (
+                {currentData.map(({ node: post }) => (
                     <S.GatsbyLink
                         to={'/post/' + post.slug.current} 
                         key={post.slug.current}>
@@ -95,8 +104,8 @@ const Post = () => (
                 </S.Flex>
             </S.Container>
         </>
-        )}
+        )}}
     />
 )
 
-export default Post
+export default PostContent

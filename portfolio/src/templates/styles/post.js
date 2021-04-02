@@ -135,6 +135,8 @@ export const Image = styled.div`
         padding: 5em;
         background-size: 100%;
         margin: .3em;
+        filter: invert(${props => props.theme.main === '#fcfcfc' ? '0' : '100%'});
+
 
         @media (max-width: 1200px) {
             padding: 4em;
@@ -154,15 +156,7 @@ export const Image = styled.div`
 `
 
 export const PostContent = styled(BlockContent)`
-    margin: 0 5em;
-
-    @media (max-width: 800px) {
-        margin: 0 3em;
-    }
-
-    @media (max-width: 600px) {
-        margin: 0 0;
-    }
+    margin: 0 1em;
 `
 export const Return = styled.div`
     text-align: center;

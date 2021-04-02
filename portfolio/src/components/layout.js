@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import NavBar from './navbar'
+import { NavBar }from './navbar'
 import "./styles/layout.css"
 import { createGlobalStyle } from 'styled-components'
 import { ThemeProvider } from 'styled-components'
@@ -15,19 +15,21 @@ const Light = {
   green: '#06d444',
   yellow: '#faea05',
   red: '#ff4d56',
+  button: '#AAAAAA'
 }
 
 const Dark = {
-  main: '#18191A',
+  main: '#111111',
   secondary: '#ffffff',
   accent: '#26f7fd',
   accent2: '#529bfa',
-  accent3: '#121618',
+  accent3: '#222222',
   hover: '#333333',
   mode: '#faf752',
   green: ' #39ff14',
   yellow: '#faf752',
   red: '#ff476d',
+  button: '#AAAAAA'
 }
 
 const themes = {
@@ -48,7 +50,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 `
 
-export default function Layout({ children }) {
+export default function Layout({children, path}) {
 
   const [theme, setTheme] = useState('light')
 
@@ -56,7 +58,7 @@ export default function Layout({ children }) {
     <>
       <ThemeProvider theme={themes[theme]}>
         <GlobalStyles />
-        <NavBar theme={theme} setTheme={setTheme}>
+        <NavBar theme={theme} setTheme={setTheme} path={path}>
         {children}
         </NavBar>
       </ThemeProvider>

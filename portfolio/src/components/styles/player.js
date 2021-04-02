@@ -10,7 +10,7 @@ export const Overlay = styled.div`
     justify-content: center;
     position: fixed;
     top: 0;
-    left: 0;
+    left: -20px;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
@@ -28,7 +28,7 @@ export const Inner = styled.div`
     }
 `
 
-export const Close = styled.button`
+export const Close = styled.div`
     position: absolute;
     right: 15px;
     top: 15px;
@@ -59,6 +59,6 @@ export const Close = styled.button`
     }
 `
 
-export const Button = styled.a`
+export const Button = styled.div`
 
 `
