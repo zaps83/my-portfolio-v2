@@ -3,7 +3,6 @@ import * as S from './styles/project-content'
 import { graphql, StaticQuery } from "gatsby"
 import Player from './player'
 import { serializer } from './serializer'
-import SanityMuxPlayer from "sanity-mux-player";
 
 const Project = ({ page }) => (
     <StaticQuery 
@@ -63,12 +62,6 @@ const Project = ({ page }) => (
                     {currentData.map(({ node: project }) => {
                       return (
                         <S.ProjectContainer key={project.title}>
-                              <SanityMuxPlayer
-                                  assetDocument={project.videoFile}
-                                  autoload={true}
-                                  autoplay={false}
-                                  showControls={true}
-                                />
                             <S.ProjectTitle>
                                 {project.title}
                             </S.ProjectTitle>
