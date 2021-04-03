@@ -3,6 +3,7 @@ import * as S from './styles/project-content'
 import { graphql, StaticQuery } from "gatsby"
 import Player from './player'
 import { serializer } from './serializer'
+import SanityMuxPlayer from "sanity-mux-player";
 
 const Project = ({ page }) => (
     <StaticQuery 
@@ -31,6 +32,7 @@ const Project = ({ page }) => (
                   viewCode
                   visitSite
                   watchDemo
+                  publishedAt
                   body {
                     children {
                       text
@@ -52,6 +54,8 @@ const Project = ({ page }) => (
 
           const currentData = page === 'home' ? homeData : projectData
 
+          console.log('video file', currentData[0].node.videoFile)
+
           return (
             <>
             <S.Container>
@@ -59,6 +63,12 @@ const Project = ({ page }) => (
                     {currentData.map(({ node: project }) => {
                       return (
                         <S.ProjectContainer key={project.title}>
+                              <SanityMuxPlayer
+                                  assetDocument={project.videoFile}
+                                  autoload={true}
+                                  autoplay={false}
+                                  showControls={true}
+                                />
                             <S.ProjectTitle>
                                 {project.title}
                             </S.ProjectTitle>
@@ -74,24 +84,29 @@ const Project = ({ page }) => (
                                     <S.Button>
                                         <Player>
                                             <Player.Button />
-                                            <Player.Video src={`media/${project.watchDemo}`} />
+                                            <Player.Video src={`/${project.watchDemo}`} />
                                         </Player>
                                     </S.Button>
                                 </S.Buttons>
                             </S.InnerContainer>
-                            <S.Description 
-                                blocks={project._rawBody} 
-                                serializers={serializer} 
-                                projectId='ldqg7s9d' 
-                                dataset='production'/>
-                                {project.relatedPosts.length ? (
-                                    <S.ReadAbout>Read More About This Project</S.ReadAbout>
-                                ) : null}
-                                <S.ReadAboutLinks>
-                                    {project.relatedPosts.map(({ postInfo }) => (
-                                        <S.ReadAboutLink key={postInfo.postLink} to={postInfo.postLink}>{postInfo.postName}</S.ReadAboutLink>
-                                    ))}    
-                                </S.ReadAboutLinks>
+                            <S.Body>
+                              <S.Date>
+                                  {new Date(project.publishedAt).toLocaleString('en-US').slice(0, 9)}
+                              </S.Date>
+                              <S.Description 
+                                  blocks={project._rawBody} 
+                                  serializers={serializer} 
+                                  projectId='ldqg7s9d' 
+                                  dataset='production'/>
+                                  {project.relatedPosts.length ? (
+                                      <S.ReadAbout>Read More About This Project</S.ReadAbout>
+                                  ) : null}
+                                  <S.ReadAboutLinks>
+                                      {project.relatedPosts.map(({ postInfo }) => (
+                                          <S.ReadAboutLink key={postInfo.postLink} to={postInfo.postLink}>{postInfo.postName}</S.ReadAboutLink>
+                                      ))}    
+                                  </S.ReadAboutLinks>
+                                </S.Body>
                         </S.ProjectContainer>
                     )})}
                 </S.Grid>

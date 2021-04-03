@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, createContext } from "react"
 import { NavBar }from './navbar'
 import "./styles/layout.css"
 import { createGlobalStyle } from 'styled-components'
@@ -11,11 +11,11 @@ const Light = {
   accent2: '#faf752',
   accent3: '#ffffff',
   hover: '#eeeeee',
-  mode: '#26f7fd',
   green: '#06d444',
   yellow: '#faea05',
   red: '#ff4d56',
-  button: '#AAAAAA'
+  button: '#AAAAAA',
+  lightLine: '#eeeeee'
 }
 
 const Dark = {
@@ -25,17 +25,19 @@ const Dark = {
   accent2: '#529bfa',
   accent3: '#222222',
   hover: '#333333',
-  mode: '#faf752',
   green: ' #39ff14',
   yellow: '#faf752',
   red: '#ff476d',
-  button: '#AAAAAA'
+  button: '#AAAAAA',
+  lightLine: '#333333'
 }
 
 const themes = {
   light: Light,
   dark: Dark,
 }
+
+export const ThemeContext = createContext()
 
 export const GlobalStyles = createGlobalStyle`
     html, body {
@@ -59,7 +61,9 @@ export default function Layout({children, path}) {
       <ThemeProvider theme={themes[theme]}>
         <GlobalStyles />
         <NavBar theme={theme} setTheme={setTheme} path={path}>
-        {children}
+        <ThemeContext.Provider value = {{ theme, setTheme }}>
+          {children}
+          </ThemeContext.Provider>
         </NavBar>
       </ThemeProvider>
     </>

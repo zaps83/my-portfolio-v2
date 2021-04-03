@@ -73,6 +73,6 @@ export default {
         name: 'watchDemo',
         title: 'Watch Demo',
         type: 'string'
-      }
+      },
     ],
 }

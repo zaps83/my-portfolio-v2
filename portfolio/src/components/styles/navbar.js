@@ -8,14 +8,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 export const Header = styled.div`
-    border-bottom: .1em solid #999999;
+    border-bottom: .15em solid ${props => props.theme.lightLine};
     padding: 0 0 .5em;
     margin: 1em;
 `
 
 export const NavContainer = styled.div`
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: space-between;
     margin: 0 auto;
     width: 100%;
 `
@@ -29,6 +31,11 @@ export const NavText = styled.div`
 export const Nav = styled.nav`
     display: flex;
     margin: 0;
+
+    @media (max-width: 600px) {
+        width: 100%;
+        justify-content: space-between;
+    }
 `
 
 export const Inner = styled.div`
@@ -39,6 +46,10 @@ export const Inner = styled.div`
     align-items: center;
     position: relative;
     transition: all 0.2s;
+
+    @media (max-width: 420px) {
+        padding: 6em;
+    }
 
 `
 
@@ -117,7 +128,7 @@ export const ToggleContainer = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border-left: .1em solid #999999;
+    border-left: .15em solid ${props => props.theme.lightLine};
     padding: 0 0 0 1em;
 
 `
@@ -155,7 +166,7 @@ export const DropdownText = styled.div`
 
 export const Dropdown = styled.div`
     display: none;
-    background-color: ${props => props.theme.main};
+    background-color: ${props => props.theme.accent3};
     border: .1em solid #999999;
     position: absolute;
     z-index: 100;
@@ -170,23 +181,30 @@ export const Dropdown = styled.div`
 `
 
 export const DropdownContainer = styled.div`
+${props => console.log('dd props', props)}
     display: none;
     align-items: center;
     position: relative;
     padding: 0 1em;
-    @media (max-width: 1000px) {
-        display: flex;
-    }
+
     &:hover > ${Dropdown} {
         display: flex;
         flex-direction: column;
+    }
+
+    @media (min-width: 600px) and (max-width: 1000px) {
+        ${props => props.location === 'desktop' ? 'display: flex' : 'display: none'};
+    }
+
+    @media (max-width: 600px) {
+        ${props => props.location === 'mobile' ? 'display: flex' : 'display: none'};
     }
 `
 
 const Toggle = styled.button`
     display: inline;
     align-items: left;
-    padding: .5em 0;
+    padding: .8em 0;
     margin: 0;
     text-decoration: none;
     color: ${props => props.theme.secondary};
@@ -197,6 +215,10 @@ const Toggle = styled.button`
     transition: all 0.2s;
     &:focus {
         outline: none;
+    }
+    
+    @media (max-width: 1000px) {
+        background-color: ${props => props.theme.accent3};
     }
     &:hover {
         @media (min-width: 1000px) {
@@ -209,7 +231,7 @@ const Toggle = styled.button`
         }
     }
     @media (max-width: 1000px) {
-        border-top: .1em solid #999999;
+        border-top: .15em solid ${props => props.theme.lightLine};
         border-radius: 0;
     }
 `
@@ -257,7 +279,7 @@ export const Footer = styled.div`
     align-items: center;
     margin: 1em;
     padding: 1em;
-    border-top: .1em solid #999999;
+    border-top: .15em solid ${props => props.theme.lightLine};
 
 `
 

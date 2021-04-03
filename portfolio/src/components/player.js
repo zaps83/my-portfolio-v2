@@ -20,7 +20,7 @@ Player.Video = function PlayerVideo({ src, ...restProps }) {
     return showPlayer ? ReactDOM.createPortal(
         <Overlay onClick={() => setShowPlayer(false)} {...restProps}>
             <Inner>
-                <video id='netflix-player' controls preload="auto" autoplay muted>
+                <video style={{minWidth: "100%", minHeight: "100%"}} controls muted loop playsinline>
                     <source src={src} type='video/mp4' />
                 </video>
                 <Close />

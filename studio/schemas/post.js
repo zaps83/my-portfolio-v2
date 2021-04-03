@@ -43,6 +43,14 @@ export default {
       },
     },
     {
+      name: 'darkModeImage',
+      title: 'Dark Mode Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
       name: 'categories',
       title: 'Categories',
       type: 'array',

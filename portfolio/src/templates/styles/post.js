@@ -28,9 +28,14 @@ export const Container = styled.div`
     }
 
     @media (max-width: 600px) {
-        margin: 6em 0 4em;
+        margin: 6em 1em 4em;
+    }
+
+    @media (max-width: 450px) {
+        margin: 6em 0em 4em;
         border-left: none;
         border-right: none;
+        border-radius: 0;
     }
 `
 
@@ -41,7 +46,11 @@ export const Heading = styled.div`
     align-items: center;
     text-align: left;
     margin: 0 0 4em;
-    border-bottom: .1em solid #999999;
+    border-bottom: .1em solid ${props => props.theme.lightLine};
+
+    @media (max-width: 400px) {
+        flex-direction: column;
+    }
 `
 
 export const MobileContainer = styled.div`
@@ -121,6 +130,7 @@ export const Date = styled.div`
 export const Leetcode = styled.a`
     color: ${props => props.theme.secondary};
     margin-left: .75em;
+    font-size: .9em;
 
     &:hover {
         color: ${props => props.theme.accent};

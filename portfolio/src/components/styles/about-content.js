@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 
 
 export const Container = styled.div`
-    
+    margin: 2em 4em;
 `
 
 export const Title = styled.h1`

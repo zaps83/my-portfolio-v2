@@ -29,7 +29,7 @@ export const NavBar = ({ theme, setTheme, children, path }) => {
 
     addTab(linkTabs, GithubIcon, 'https://github.com/zaps83', 'Github')
     addTab(linkTabs, LinkedinIcon, 'https://www.linkedin.com/in/steven-zapart-59777a152/', 'Linkedin')
-    addTab(linkTabs, DownloadIcon, '/media/Test_PDF.pdf', 'Resume')
+    addTab(linkTabs, DownloadIcon, '/Test_PDF.pdf', 'Resume')
 
     function addTab(container, icon, page, display) {
         container.push({
@@ -90,12 +90,24 @@ export const NavBar = ({ theme, setTheme, children, path }) => {
         )
     })
 
+    const Dropdown = (location) => (
+        <S.DropdownContainer location={location}>
+        <S.OpenDropdown 
+            icon={DropdownIcon} />
+        <S.Dropdown>
+            {LinkTabs}
+            <S.Splash theme={theme} setTheme={setTheme} />
+        </S.Dropdown>
+    </S.DropdownContainer>
+    )
+
     return (
         <>
         <S.Header>
             <S.NavContainer>
                 <S.Nav>
                     {NavTabs}
+                    {Dropdown('mobile')}
                 </S.Nav>
                 <S.RightContainer>
                     <S.Links>
@@ -105,14 +117,7 @@ export const NavBar = ({ theme, setTheme, children, path }) => {
                         <S.Splash theme={theme} setTheme={setTheme} />
                     </S.ToggleContainer>
                 </S.RightContainer>
-                <S.DropdownContainer>
-                    <S.OpenDropdown 
-                        icon={DropdownIcon} />
-                    <S.Dropdown>
-                        {LinkTabs}
-                        <S.Splash theme={theme} setTheme={setTheme} />
-                    </S.Dropdown>
-                </S.DropdownContainer>
+                {Dropdown('desktop')}
             </S.NavContainer>
         </S.Header>
         {children}
@@ -120,7 +125,7 @@ export const NavBar = ({ theme, setTheme, children, path }) => {
             <S.Links>
                 {LinkTabs}
             </S.Links>
-            <S.Email>Email me at steven.zapart@gmail.com</S.Email>
+            <S.Email>Contact me at steven.zapart@gmail.com</S.Email>
         </S.Footer>
     </>
 

@@ -4,12 +4,12 @@ import { Link } from 'gatsby'
 
 
 export const Container = styled.div`
-    margin: 2em 3em;
+    margin: 2em 3em 4em;
     display: flex;
     justify-content: center; 
 
     @media (max-width: 450px) {
-        margin: 2em 0;
+        margin: 2em 0 4em;
     }
 `
 
@@ -35,15 +35,24 @@ export const ProjectContainer =styled.div`
     margin: 1em 3em;
     padding: 0 0 2em;
 
+    &:hover {
+        transform: scale(1.02);
+    }
+
     @media (max-width: 1300px) {
         margin: 1em 1em;
     }
 
     @media (max-width: 450px) {
-        margin: 1em 0;
         border-radius: 0;
         border-left: none;
         border-right: none;
+        border-bottom: none;
+        margin: 0;
+
+        &:last-of-type {
+            border-bottom: .1em solid #999999;
+        }
     }
 `
 
@@ -92,7 +101,7 @@ export const Buttons = styled.div`
 `
 
 export const Button = styled.a`
-    border: .15em solid ${props => props.theme.button};
+    border: .1em solid ${props => props.theme.accent2};
     border-radius: .5em;
     width: 7rem;
     text-align: center;
@@ -107,7 +116,7 @@ export const Button = styled.a`
     &:hover {
         background-color: ${props => props.theme.accent};
         color: ${props => props.theme.hover};
-        border: .15em solid ${props => props.theme.secondary};
+        border: .1em solid ${props => props.theme.accent};
     }
 
 
@@ -117,27 +126,26 @@ export const Button = styled.a`
     }
 `
 
+export const Body = styled.div`
+    border-top: .15em solid;
+    padding: 1em 0;
+    margin: 0 2em;
+`
+
+export const Date = styled.div`
+    font-size: .9em;
+    font-weight: 700;
+`
+
 export const Description = styled(BlockContent)`
     width: 90%;
-    padding: 2em 0;
-    margin: 1em 0 0;
-    border-top: solid;
+    padding: .5em 0 2em;
+    margin: .5em 0 0;
 
-    @media (max-width: 500px) {
-        font-size: .8em;
-    }
-
-    @media (max-width: 400px) {
-        font-size: .7em;
-    }
 `
 
 export const ReadAbout = styled.h3`
     width: 90%;
-
-    @media (max-width: 500px) {
-        font-size: 1.1em;
-    }
 `
 
 export const ReadAboutLinks = styled.div`
@@ -152,13 +160,5 @@ export const ReadAboutLink = styled(Link)`
 
     &:hover {
         color: ${props => props.theme.accent};
-    }
-
-    @media (max-width: 500px) {
-        font-size: .8em;
-    }
-
-    @media (max-width: 400px) {
-        font-size: .7em;
     }
 `

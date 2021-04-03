@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import BlockContent from '@sanity/block-content-to-react'
 
 export const Container = styled.div`
-    margin: 0 auto;
+    margin: 0 auto 3em;
     width: 100%;
     display: flex;
     justify-content: center; 
@@ -35,42 +35,40 @@ export const GatsbyLink = styled(Link)`
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;    
     position: relative;
 
+    &:hover {
+        transform: scale(1.02);
+    }
+
     @media (max-width: 900px) {
         display: flex;
         flex-direction: column;
     }
 
     @media (max-width: 450px) {
-        margin: 1em 0;
         border-radius: 0;
         border-left: none;
         border-right: none;
+        border-bottom: none;
+        margin: 0;
+
+        &:last-of-type {
+            border-bottom: .1em solid #999999;
+        }
     }
 `
 
 export const Image = styled.div`
     padding: 4em;
+    margin: 1em;
     background-image: url(${props => props.image});
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-size: 40%;
-    filter: invert(${props => props.theme.main === '#fcfcfc' ? '0' : '100%'});
-    
+    background-size: 300%;    
 
     @media (max-width: 900px) {
+        background-size: 400%;
         padding: 3em;
-        background-size: 100%;
-        margin: .3em;
-        align-self: flex-start;
-    }
-
-    @media (max-width: 600px) {
-        padding: 2em;
-    }
-
-    @media (max-width: 450px) {
-        padding: 1em;
     }
 
 `
@@ -121,9 +119,6 @@ export const List = styled.div`
         font-size: .9em;
     }
 
-    @media (max-width: 500px) {
-        font-size: .7em;
-    }
 `
 
 export const Bullet = styled.div`
@@ -140,38 +135,44 @@ export const Bullet = styled.div`
     }
 `
 
-export const PostTitle = styled.h2`
-    text-decoration: none;
-    margin: .5em;
-    border-top: .1em solid;
+export const DateAndTitle = styled.div`
+    margin: 1em 1em 0;
+    border-top: solid;
     padding: .5em 0 0;
+    display: flex;
+    flex-direction: column;
 
     @media (max-width: 900px) {
-        margin: 1em 0 .5em;
+        margin: 1em;
         padding: 0;
-        border: none;
+        border: solid;
+        flex-direction: reverse-column;
+    }
+`
+
+export const PostTitle = styled.h2`
+    margin: .25em 0;
+
+    @media (max-width: 900px) {
+        margin: .3em 0;
+    }
+`
+
+export const Date = styled.div`
+    font-size: .9em;
+    
+    @media (max-width: 900px) {
+        margin: .5em 0 0;
     }
 
-    @media (max-width: 750px) {
-        font-size: 1.1em;
-    }
-
-    @media (max-width: 500px) {
-        font-size: .9em;
+    @media (min-width: 900px) {
+        align-self: flex-end;
     }
 `
 
 export const Description = styled(BlockContent)`
     padding: .5em 1em 0;
     text-align: left;
-
-    @media (max-width: 700px) {
-        font-size: .9em;
-    }
-
-    @media (max-width: 500px) {
-        font-size: .8em;
-    }
 `
 
 export const Flex = styled.div`

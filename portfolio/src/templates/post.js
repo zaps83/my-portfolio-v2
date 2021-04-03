@@ -53,10 +53,10 @@ const SinglePage = ({ data }) => (
                         <S.Date>
                             {new Date(data.sanityPost.publishedAt).toLocaleString('en-US').slice(0, 9)}
                         </S.Date>
-                        •
+                        {data.sanityPost.leetcodeUrl ? (<>•
                         <S.Leetcode target='_blank' href={data.sanityPost.leetcodeUrl}>
-                            See the problem on Leetcode
-                        </S.Leetcode>
+                            Leetcode link
+                        </S.Leetcode></>) : null}
                     </S.HeaderContainer>
                 </S.MobileContainer>
                 <S.Image image={data.sanityPost.mainImage?.asset.fluid.src} />

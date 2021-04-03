@@ -3,9 +3,8 @@ import { graphql, StaticQuery } from "gatsby"
 import * as S from './styles/post-content'
 import { serializer } from './serializer'
 
-
-const PostContent = ({ page }) => (
-
+const PostContent = (props) => (
+    
     <StaticQuery
         query={graphql`
         {
@@ -23,6 +22,13 @@ const PostContent = ({ page }) => (
                       }
                     }
                   }
+                  darkModeImage {
+                    asset {
+                      fluid {
+                        src
+                      }
+                    }
+                  }
                   bullets
                   difficulty
                   _rawDescription
@@ -34,13 +40,15 @@ const PostContent = ({ page }) => (
           
     `}
         render={data => {
+
+            console.log('props', props)
             
             const postData = data.allSanityPost.edges
                 .sort((a, b) => new Date(b.node.publishedAt) - new Date(a.node.publishedAt))
 
             const homeData = postData.filter((value, index) => index < 3)
 
-            const currentData = page === 'home' ? homeData : postData
+            const currentData = props.page === 'home' ? homeData : postData
 
             return (
         <>
@@ -50,9 +58,15 @@ const PostContent = ({ page }) => (
                         <S.GatsbyLink 
                             to={'/post/' + post.slug.current} 
                             key={post.slug.current}>
-                                <S.Image image={post.mainImage?.asset.fluid.src} />
+                                <S.Image image={post.darkModeImage && props.theme === 'dark' ?
+                                     post.darkModeImage.asset.fluid.src : post.mainImage.asset.fluid.src} />
                                 {post.difficulty ? <S.Difficulty>{post.difficulty}</S.Difficulty> : null}
-                                {post.title ? <S.PostTitle>{post.title}</S.PostTitle> : null}       
+                                <S.DateAndTitle>
+                                    <S.Date>
+                                        {new Date(post.publishedAt).toLocaleString('en-US').slice(0, 9)}
+                                    </S.Date>
+                                    {post.title ? <S.PostTitle>{post.title}</S.PostTitle> : null}       
+                                </S.DateAndTitle>
                                 <S.List>
                                     {post.bullets.map((bullet, index) => {
                                         return (
@@ -78,6 +92,9 @@ const PostContent = ({ page }) => (
                         key={post.slug.current}>
                         <S.Heading>
                             <S.MobileContainer>
+                            <S.Date>
+                                {new Date(post.publishedAt).toLocaleString('en-US').slice(0, 9)}
+                            </S.Date>
                             {post.title ? <S.PostTitle>{post.title}</S.PostTitle> : null}
                             <S.List>
                                 {post.bullets.map((bullet, index) => {
@@ -92,7 +109,8 @@ const PostContent = ({ page }) => (
                             </S.List>  
 
                             </S.MobileContainer>
-                            <S.Image image={post.mainImage?.asset.fluid.src} />
+                            <S.Image image={post.darkModeImage && props.theme === 'dark' ?
+                                     post.darkModeImage.asset.fluid.src : post.mainImage.asset.fluid.src} />
                         </S.Heading>
                         {post._rawDescription ? <S.Description 
                                     blocks={post._rawDescription} 
