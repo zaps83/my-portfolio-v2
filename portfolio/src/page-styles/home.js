@@ -14,8 +14,8 @@ export const SectionBottom = styled.div`
     margin: 1em auto 4em;
     padding: 0 0 4em;
     width: 90%;
-    border-bottom: ${props => props.section === 'project' ? 'none' : `.15em solid ${props.theme.lightLine}`};
-    padding: ${props => props.section === 'project' ? '0' : ` 0 0 4em;`};
+    border-bottom: ${props => props.section === 'projects' ? 'none' : `.15em solid ${props.theme.lightLine}`};
+    padding-bottom: 4em;
 
 `
 
@@ -29,6 +29,18 @@ export const GatsbyLink = styled(Link)`
 
 export const AboutContainer = styled.div`
     margin: 2em 4em;
+
+    @media (max-width: 750px) {
+        margin: 2em 3em;
+    }
+
+    @media (max-width: 600px) {
+        margin: 2em 2em;
+    }
+
+    @media (max-width: 450px) {
+        margin: 2em 1em;
+    }
 `
 
 export const AboutTitle = styled.h1`

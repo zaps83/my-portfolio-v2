@@ -8,7 +8,7 @@ export default function Project ({ data }) {
     return (
         <>
             <S.Title>Projects</S.Title>
-            <ProjectContent page='project' data={data}/>
+            <ProjectContent page='projects' data={data}/>
         </>
     )
 }

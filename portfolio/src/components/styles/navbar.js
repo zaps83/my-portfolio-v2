@@ -141,32 +141,11 @@ export const ToggleContainer = styled.div`
     justify-content: center;
     border-left: .15em solid ${props => props.theme.lightLine};
     padding: 0 0 0 1em;
-
 `
 
 export const OpenDropdown = styled(FontAwesomeIcon)`
     cursor: pointer;
 
-`
-
-export const Group = styled.a`
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: ${props => props.theme.secondary}
-`
-
-export const TextLink = styled.p`
-    color: white;
-    text-decoration: none;
-    margin-right: 30px;
-    cursor: pointer;
-    &:hover {
-        font-weight: bold;
-    }
-    &:last-of-type {
-        margin-right: 0;
-    }
 `
 
 export const DropdownText = styled.div`

@@ -20,6 +20,17 @@ const ProjectContent = ({ page, data }) => {
 
     const [demo, setDemo] = useState(demoData)
 
+    function activateDemo(title) {
+        if (demo[title] === true) {
+            setDemo({...demo, [title]: false})
+        } else {
+            for (data in demo) {
+                demo[data] = false
+              }
+            setDemo({...demo, [title]: true})
+        }
+    }
+
     return (
         <>
         <S.Container>
@@ -47,7 +58,7 @@ const ProjectContent = ({ page, data }) => {
                                     View Code
                                 </S.Button>
                                 {project.video ?
-                                    <S.Button onClick={() => setDemo({...demo, [project.title]: !demo[project.title]})} >
+                                    <S.Button onClick={() => activateDemo(project.title)} >
                                         {demo[project.title] ? 'Stop' : 'Watch'} Demo
                                     </S.Button> : null}
                             </S.Buttons>

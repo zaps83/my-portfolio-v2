@@ -7,7 +7,10 @@ export default function HomeAbout () {
         <S.Container>
             <S.Title>Steven Zapart</S.Title>
             <S.SubTitle>Full-Stack Developer</S.SubTitle>
-            <S.Description>I am developer with experience in React.</S.Description>
+            <S.Description>
+                
+
+            </S.Description>
         </S.Container>
     )
 }

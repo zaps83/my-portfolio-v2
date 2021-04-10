@@ -18,7 +18,7 @@ const PostContent = ({ page, data }) => {
                 <S.Grid>
                     {currentData.map(({ node: post }) => (
                         <S.GatsbyLink 
-                            to={'/post/' + post.slug.current} 
+                            to={'/posts/' + post.slug.current} 
                             key={post.slug.current}>
                                     {post.Image ?
                                         <S.Image image={post.Image.asset.fluid.src}/> :
@@ -51,7 +51,7 @@ const PostContent = ({ page, data }) => {
                 <S.Flex>
                 {currentData.map(({ node: post }) => (
                     <S.GatsbyLink
-                        to={'/post/' + post.slug.current} 
+                        to={'/posts/' + post.slug.current} 
                         key={post.slug.current}>
                         <S.Heading>
                             <S.MobileContainer>

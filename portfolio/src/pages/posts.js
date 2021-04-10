@@ -8,7 +8,7 @@ export default function Post ({ data }) {
     return (
         <>
             <S.Title>Posts</S.Title>
-            <PostContent page='post' data={data}/>
+            <PostContent page='posts' data={data}/>
         </>
     )
 }
