@@ -23,6 +23,34 @@ export const Grid = styled.div`
        display: none;
     }
 `
+export const Body = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8em;
+    width: 8em;
+    margin: ${props => props.page === 'singlePost' ? 'auto 0' : '1em auto'};
+
+    @media (max-width: 600px) {
+        height: 5em;
+        width: 5em;
+    }
+
+    @media (max-width: ${props => props.page === 'singlePost' ? '1000px' : '900px'}) {
+        margin: .5em ${props => props.page === 'singlePost' ? '1em' : '1.5em'} .5em .5em;
+
+    }
+
+
+
+    @media (max-width: 450px) {
+        height: 3em;
+        width: 3em;
+        margin: 1em 2em 1em 1em;
+
+    }
+    
+`
 
 export const GatsbyLink = styled(Link)`
     text-decoration: none;
@@ -35,8 +63,21 @@ export const GatsbyLink = styled(Link)`
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;    
     position: relative;
 
+    &:active {
+        @media (max-width: 1024px) {
+            background-color: ${props => props.theme.hover};
+        }
+    }
+
     &:hover {
-        transform: scale(1.02);
+        @media (min-width: 1024px) {
+            background-color: ${props => props.theme.hover};
+        }
+
+
+        @media (min-width: 450px) {
+            transform: scale(1.015);
+        }
     }
 
     @media (max-width: 900px) {
@@ -55,22 +96,58 @@ export const GatsbyLink = styled(Link)`
             border-bottom: .1em solid #999999;
         }
     }
+
+    &:active ${Body} {
+        @media (max-width: 1024px) {
+            background-color: ${props => props.theme.hover};
+        }
+    }
+
+    &:hover ${Body} {
+        @media (min-width: 1024px) {
+            background-color: ${props => props.theme.hover};
+        }
+    }
 `
 
 export const Image = styled.div`
-    padding: 4em;
-    margin: 1em;
+    height: 8em;
+    width: 8em;
+    margin: 1em auto;
     background-image: url(${props => props.image});
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-size: 300%;    
-
+    background-size: 80%;
+    
     @media (max-width: 900px) {
-        background-size: 400%;
-        padding: 3em;
+        margin-right: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        padding: 1em;
+        background-size: 70%;
     }
 
+    @media (max-width: 800px) {
+        margin-right: 1em;
+    }
+
+    @media (max-width: 700px) {
+        margin-right: 1.5em;
+        background-size: 90%;
+    }
+
+    @media (max-width: 600px) {
+        margin-right: 1.5em;
+        background-size: 100%;
+    }
+
+    @media (max-width: 450px) {
+        margin-right: 1.5em;
+        background-size: 100%;
+    }
 `
 
 export const Difficulty = styled.div`
@@ -93,12 +170,21 @@ export const Difficulty = styled.div`
             props.theme.red) : 
         props.theme.main            
     };
+    border: .05em solid ${props => 
+        props.theme.main !== '#fcfcfc' ? (
+        props.children === 'Easy' ? 
+        props.theme.green : 
+        props.children === 'Medium' ? 
+            props.theme.yellow : 
+            props.theme.red) : 
+        props.theme.main            
+    };
     border-radius: 2em;
     padding: .2em .8em;
     position: absolute;
     font-size: .8em;
     font-weight: 800;
-    top: 8.5em;
+    top: 9.5em;
     right: 1em;
 
     @media (max-width: 900px) {
@@ -154,7 +240,7 @@ export const PostTitle = styled.h2`
     margin: .25em 0;
 
     @media (max-width: 900px) {
-        margin: .3em 0;
+        margin: .3em 0 .7em;
     }
 `
 

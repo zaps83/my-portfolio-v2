@@ -1,17 +1,41 @@
-import React, { useContext } from 'react'
-import PostContent from '../components/post-content'
-import './styles/post.css'
+import React from 'react'
+import PostContent from '../components/PostContent'
 import * as S from '../page-styles/home'
-import { ThemeContext } from '../components/layout'
 
-export default function Post (props) {
-    console.log('page props', props)
-    const { theme, setTheme } = useContext(ThemeContext)
-    console.log('post theme', theme)
+import { graphql } from 'gatsby'
+
+export default function Post ({ data }) {
     return (
         <>
             <S.Title>Posts</S.Title>
-            <PostContent page='post' theme={theme}/>
+            <PostContent page='post' data={data}/>
         </>
     )
 }
+
+export const query = graphql`
+{
+    allSanityPost {
+      edges {
+        node {
+          title
+          slug {
+            current
+          }
+          Image {
+            asset {
+              fluid {
+                src
+              }
+            }
+          }
+          algorithmType
+          bullets
+          difficulty
+          _rawDescription
+          publishedAt
+        }
+      }
+    }
+  } 
+`

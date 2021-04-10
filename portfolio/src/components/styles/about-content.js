@@ -3,6 +3,10 @@ import styled from 'styled-components/macro'
 
 export const Container = styled.div`
     margin: 2em 4em;
+
+    @media (max-width: 450px) {
+        margin: 2em 1em;
+    }
 `
 
 export const Title = styled.h1`

@@ -35,20 +35,17 @@ export default {
       to: {type: 'author'},
     },
     {
-      name: 'mainImage',
-      title: 'Main image',
+      name: 'Image',
+      title: 'image',
       type: 'image',
       options: {
         hotspot: true,
       },
     },
     {
-      name: 'darkModeImage',
-      title: 'Dark Mode Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+      name: 'algorithmType',
+      title: 'Algorithm Type',
+      type: 'string',
     },
     {
       name: 'categories',

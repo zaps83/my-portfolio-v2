@@ -12,9 +12,11 @@ export const SectionBottom = styled.div`
     display: flex;
     justify-content: center;
     margin: 1em auto 4em;
-    padding: 0 0 1em;
+    padding: 0 0 4em;
     width: 90%;
     border-bottom: ${props => props.section === 'project' ? 'none' : `.15em solid ${props.theme.lightLine}`};
+    padding: ${props => props.section === 'project' ? '0' : ` 0 0 4em;`};
+
 `
 
 export const GatsbyLink = styled(Link)`

@@ -46,11 +46,6 @@ export const Inner = styled.div`
     align-items: center;
     position: relative;
     transition: all 0.2s;
-
-    @media (max-width: 420px) {
-        padding: 6em;
-    }
-
 `
 
 export const GatsbyInner = styled.div`
@@ -82,7 +77,15 @@ export const GatsbyLink = styled(Link)`
     color: ${props => props.theme.secondary};
 
     &:hover ${GatsbyInner} {
-        background-color: ${props => props.theme.hover};
+        @media (min-width: 1024px) {
+            background-color: ${props => props.theme.hover};
+        }
+    }
+
+    &:active ${GatsbyInner} {
+        @media (max-width: 1024px) {
+            background-color: ${props => props.theme.hover};
+        }
     }
 `
 
@@ -95,7 +98,15 @@ export const SocialLink = styled.a`
     color: ${props => props.theme.secondary};
 
     &:hover ${Inner} {
-        background-color: ${props => props.theme.hover};
+        @media (min-width: 1024px) {
+            background-color: ${props => props.theme.hover};
+        }
+    }
+
+    &:active ${Inner} {
+        @media (max-width: 1024px) {
+            background-color: ${props => props.theme.hover};
+        }
     }
 
     &:last-of-type {
@@ -176,12 +187,11 @@ export const Dropdown = styled.div`
     right: 0;
 
     @media (max-width: 420px) {
-        top: 2.75em;
+        top: 3.5em;
     }
 `
 
 export const DropdownContainer = styled.div`
-${props => console.log('dd props', props)}
     display: none;
     align-items: center;
     position: relative;
@@ -193,11 +203,12 @@ ${props => console.log('dd props', props)}
     }
 
     @media (min-width: 600px) and (max-width: 1000px) {
-        ${props => props.location === 'desktop' ? 'display: flex' : 'display: none'};
+        ${props => props.device === 'desktop' ? 'display: flex' : 'display: none'};
     }
 
     @media (max-width: 600px) {
-        ${props => props.location === 'mobile' ? 'display: flex' : 'display: none'};
+        ${props => props.device === 'mobile' ? 'display: flex' : 'display: none'};
+        font-size: .8em;
     }
 `
 
@@ -208,31 +219,29 @@ const Toggle = styled.button`
     margin: 0;
     text-decoration: none;
     color: ${props => props.theme.secondary};
-    border: none;
     background-color: ${props => props.theme.main};
     position: relative;
     border-radius: 50%;
     transition: all 0.2s;
+    border: none;
     &:focus {
         outline: none;
     }
     
     @media (max-width: 1000px) {
         background-color: ${props => props.theme.accent3};
-    }
-    &:hover {
-        @media (min-width: 1000px) {
-            background-color: ${props => props.theme.hover};
-        }
-    }
-    &:hover ${Inner} {
-        @media (max-width: 1000px) {
-            background-color: ${props => props.theme.hover};
-        }
-    }
-    @media (max-width: 1000px) {
         border-top: .15em solid ${props => props.theme.lightLine};
         border-radius: 0;
+    }
+    &:hover {
+        @media (min-width: 1024px) {
+            background-color: ${props => props.theme.hover};
+        }
+    }
+    &:active {
+        @media (max-width: 1024px) {
+            background-color: ${props => props.theme.hover};
+        }
     }
 `
 
@@ -245,7 +254,13 @@ const DarkMode = styled.div`
         display: none;
     }
     &:hover ${Inner} {
-        @media (max-width: 1000px) {
+        @media (min-width: 1024px) {
+            background-color: ${props => props.theme.hover};
+        }
+    }
+
+    &:active ${Inner} {
+        @media (max-width: 1024px) {
             background-color: ${props => props.theme.hover};
         }
     }
@@ -262,12 +277,13 @@ export function Splash(props) {
     }
 
     const icon = props.theme === "light" ? MoonIcon : SunIcon
+    const mode = props.theme === "light" ? "Dark" : "Light"
 
     return (
         <Toggle onClick={() => changeTheme()}>
             <Inner>
                 <Icon icon={icon} />
-                <DarkMode>Dark Mode</DarkMode>
+                <DarkMode>{mode} Mode</DarkMode>
             </Inner>
         </Toggle>
     )

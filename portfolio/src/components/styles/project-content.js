@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
 import BlockContent from '@sanity/block-content-to-react'
 import { Link } from 'gatsby'
+import ReactHlsPlayer from 'react-hls-player';
 
 
 export const Container = styled.div`
@@ -35,8 +36,20 @@ export const ProjectContainer =styled.div`
     margin: 1em 3em;
     padding: 0 0 2em;
 
+    &:active {
+        @media (max-width: 1024px) {
+            background-color: ${props => props.theme.hover};
+        }
+    }
+
     &:hover {
-        transform: scale(1.02);
+        @media (min-width: 1024px) {
+            background-color: ${props => props.theme.hover};
+        }
+
+        @media (min-width: 450px) {
+            transform: scale(1.015);
+        }
     }
 
     @media (max-width: 1300px) {
@@ -83,12 +96,28 @@ export const Image = styled.div`
     border: .1em solid ${props => props.theme.secondary};
 
     @media (max-width: 600px) {
-        padding: 5em 10em;
+        padding: 5.4em 10em;
     }
 
     @media (max-width: 400px) {
-        padding: 5em 9em;
+        padding: 4.8em 9em;
     }
+`
+
+export const DemoPlayer = styled(ReactHlsPlayer)`
+    width: 26em;
+    height: 14em;
+
+    @media (max-width: 600px) {
+        width: 20em;
+        height: 10.8em;
+    }
+
+    @media (max-width: 400px) {
+        width: 18em;
+        height: 9.6em;
+    }
+
 `
 
 export const Buttons = styled.div`
@@ -101,7 +130,6 @@ export const Buttons = styled.div`
 `
 
 export const Button = styled.a`
-    border: .1em solid ${props => props.theme.accent2};
     border-radius: .5em;
     width: 7rem;
     text-align: center;
@@ -110,13 +138,13 @@ export const Button = styled.a`
     cursor: pointer;
     transition: all 0.2s;
     margin: .25em .5em;
-    font-weight: 700;
-    background-color: ${props => props.theme.accent2};
-    color: ${props => props.theme.secondary};
+    font-weight: 600;
+    background-color: ${props => props.theme.accent};
+    color: #333333;
+
     &:hover {
-        background-color: ${props => props.theme.accent};
-        color: ${props => props.theme.hover};
-        border: .1em solid ${props => props.theme.accent};
+        background-color: ${props => props.theme.accent2};
+   
     }
 
 
@@ -130,6 +158,10 @@ export const Body = styled.div`
     border-top: .15em solid;
     padding: 1em 0;
     margin: 0 2em;
+
+    @media (max-width: 900px) {
+        margin: 0 1em;
+    }
 `
 
 export const Date = styled.div`
@@ -141,7 +173,6 @@ export const Description = styled(BlockContent)`
     width: 90%;
     padding: .5em 0 2em;
     margin: .5em 0 0;
-
 `
 
 export const ReadAbout = styled.h3`

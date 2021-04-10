@@ -48,7 +48,7 @@ export const Heading = styled.div`
     margin: 0 0 4em;
     border-bottom: .1em solid ${props => props.theme.lightLine};
 
-    @media (max-width: 400px) {
+    @media (max-width: 600px) {
         flex-direction: column;
     }
 `
@@ -59,6 +59,10 @@ export const MobileContainer = styled.div`
     justify-content: center;
     align-items: flex-start;
     margin: 0 1em;
+
+    @media (max-width: 450px) {
+        margin: 0;
+    }
 `
 
 export const PostTitle = styled.h2`
@@ -108,6 +112,15 @@ export const Difficulty = styled.div`
             props.theme.red) : 
         props.theme.main            
     };
+    border: .05em solid ${props => 
+        props.theme.main !== '#fcfcfc' ? (
+        props.children === 'Easy' ? 
+        props.theme.green : 
+        props.children === 'Medium' ? 
+            props.theme.yellow : 
+            props.theme.red) : 
+        props.theme.main            
+    };
     border-radius: 2em;
     padding: .2em .8em;
     display: inline;
@@ -138,35 +151,29 @@ export const Leetcode = styled.a`
 `
 
 export const Image = styled.div`
-        background-image: url(${props => props.image});
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding: 5em;
-        background-size: 100%;
-        margin: .3em;
-        filter: invert(${props => props.theme.main === '#fcfcfc' ? '0' : '100%'});
+    height: 12em;
+    width: 28em;
+    margin: 2em;
+    background-image: url(${props => props.image});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 100%;
 
+    @media (max-width: 600px) {
+        width: 5em;
+        height: 5em;
+        margin: 1em;
+    }
 
-        @media (max-width: 1200px) {
-            padding: 4em;
-        }
-
-        @media (max-width: 900px) {
-            padding: 3em;
-        }
-    
-        @media (max-width: 600px) {
-            padding: 2em;
-        }
-    
-        @media (max-width: 450px) {
-            padding: 1em;
-        }
 `
 
 export const PostContent = styled(BlockContent)`
     margin: 0 1em;
+
+    @media (max-width: 450px) {
+        margin: 0;
+    }
 `
 export const Return = styled.div`
     text-align: center;

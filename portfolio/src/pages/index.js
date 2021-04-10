@@ -1,11 +1,10 @@
 import React from 'react'
-import About from '../components/about-content'
-import Projects from '../components/project-content'
-import Posts from '../components/post-content'
 import * as S from '../page-styles/home'
+import ProjectContent from '../components/ProjectContent'
+import PostContent from '../components/PostContent'
+import { graphql } from 'gatsby'
 
-
-export default function App() {
+export default function App({ data }) {
   return (
     <>
       <S.AboutContainer>
@@ -17,12 +16,12 @@ export default function App() {
         <S.GatsbyLink to='about'>Read more</S.GatsbyLink>
       </S.SectionBottom>
       <S.Title>Lastest Posts</S.Title>
-      <Posts page='home'/>
+      <PostContent page='home' data={data}/>
       <S.SectionBottom>
         <S.GatsbyLink to='post'>See more posts</S.GatsbyLink>
       </S.SectionBottom>
       <S.Title>Latest Projects</S.Title>
-      <Projects page='home'/>
+      <ProjectContent page='home' data={data}/>
       <S.SectionBottom section={'project'}>
         <S.GatsbyLink to='project'>See more projects</S.GatsbyLink>
       </S.SectionBottom>
@@ -30,3 +29,67 @@ export default function App() {
   )
 }
 
+export const query = graphql`
+{
+    allSanityProject {
+      edges {
+        node {
+            video {
+                asset {
+                    playbackId
+                }
+            }
+          title
+          slug {
+            current
+          }
+          mainImage {
+            asset {
+              fluid {
+                src
+              }
+            }
+          }
+          relatedPosts {
+              postInfo {
+                  postLink
+                  postName
+              }
+          }
+          viewCode
+          visitSite
+          watchDemo
+          publishedAt
+          body {
+            children {
+              text
+            }
+          }
+          _rawBody
+        }
+      }
+    }
+    allSanityPost {
+      edges {
+        node {
+          title
+          slug {
+            current
+          }
+          Image {
+            asset {
+              fluid {
+                src
+              }
+            }
+          }
+          algorithmType
+          bullets
+          difficulty
+          _rawDescription
+          publishedAt
+        }
+      }
+    }
+  } 
+`

@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import * as S from './styles/post'
 import { serializer } from '../components/serializer'
 import { faChevronLeft as ArrowIcon } from '@fortawesome/free-solid-svg-icons'
-
+import { algorithm } from '../components/AlgorithmIdentifier'
 
 export const query = graphql`
 query ($slug: String) {
@@ -21,7 +21,8 @@ query ($slug: String) {
     leetcodeUrl
     bullets
     difficulty
-    mainImage {
+    algorithmType
+    Image {
         asset {
         fluid {
             src
@@ -32,7 +33,7 @@ query ($slug: String) {
 }
 `
 
-const SinglePage = ({ data }) => (
+const SinglePage = ({ data, theme }) => (
     <>
         <S.Container>
             <S.Heading>
@@ -59,7 +60,9 @@ const SinglePage = ({ data }) => (
                         </S.Leetcode></>) : null}
                     </S.HeaderContainer>
                 </S.MobileContainer>
-                <S.Image image={data.sanityPost.mainImage?.asset.fluid.src} />
+                {data.sanityPost.Image ?
+                    <S.Image image={data.sanityPost.Image.asset.fluid.src}/> :
+                    algorithm(data.sanityPost.algorithmType, 'singlePost')}
             </S.Heading>
             <S.PostContent 
                 className='p-text'
@@ -72,7 +75,6 @@ const SinglePage = ({ data }) => (
         <S.Return>
             <S.GatsbyLink to='/post'><S.Icon icon={ArrowIcon} />Back to posts</S.GatsbyLink>
         </S.Return>
-
     </>
 
 )
