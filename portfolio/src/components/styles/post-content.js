@@ -190,6 +190,7 @@ export const Difficulty = styled.div`
     @media (max-width: 900px) {
         position: static;
         display: inline;
+        margin: .5em 0;
     }
 `
 
@@ -199,6 +200,7 @@ export const List = styled.div`
     @media (max-width: 900px) {
         line-height: 1em;
         display: inline;
+        margin-bottom: .5em;
     }
 
     @media (max-width: 750px) {

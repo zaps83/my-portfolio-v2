@@ -8,7 +8,7 @@ const ProjectContent = ({ page, data }) => {
     const projectData = data.allSanityProject.edges
         .sort((a, b) => new Date(b.node.publishedAt) - new Date(a.node.publishedAt))
 
-    const homeData = projectData.filter((value, index) => index < 2)
+    const homeData = projectData.filter((value) => value.node.title === 'Netflix Clone' || value.node.title === 'NBA Stats Visualization')
 
     const currentData = page === 'home' ? homeData : projectData
 

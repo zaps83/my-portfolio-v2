@@ -65,7 +65,6 @@ const SinglePage = ({ data, theme }) => (
                     algorithm(data.sanityPost.algorithmType, 'singlePost')}
             </S.Heading>
             <S.PostContent 
-                className='p-text'
                 blocks={data.sanityPost._rawBody} 
                 serializers={serializer} 
                 projectId='ldqg7s9d' 
@@ -73,7 +72,7 @@ const SinglePage = ({ data, theme }) => (
                 <br/><br/>
         </S.Container>
         <S.Return>
-            <S.GatsbyLink to='/post'><S.Icon icon={ArrowIcon} />Back to posts</S.GatsbyLink>
+            <S.GatsbyLink to='/posts'><S.Icon icon={ArrowIcon} />Back to posts</S.GatsbyLink>
         </S.Return>
     </>
 

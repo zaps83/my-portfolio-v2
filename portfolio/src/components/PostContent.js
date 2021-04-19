@@ -60,6 +60,7 @@ const PostContent = ({ page, data }) => {
                                 </S.Date>
                                 {post.title ? <S.PostTitle>{post.title}</S.PostTitle> : null}
                                 <S.List>
+
                                     {post.bullets.map((bullet, index) => {
                                         return (
                                             <>
@@ -68,8 +69,9 @@ const PostContent = ({ page, data }) => {
                                             </>
                                         )
                                     })}
-                                    {post.difficulty ? <S.Difficulty>{post.difficulty}</S.Difficulty> : null}
                                 </S.List>
+                                {post.difficulty ? <S.Difficulty>{post.difficulty}</S.Difficulty> : null}
+
                                 </S.MobileContainer>
                                 {post.Image ?
                                     <S.Image image={post.Image.asset.fluid.src}/> :

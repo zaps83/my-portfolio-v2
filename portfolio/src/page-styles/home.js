@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro'
 import { Link } from 'gatsby'
+import BlockContent from '@sanity/block-content-to-react'
 
 export const Title = styled.h1`
     display: flex;
@@ -28,19 +29,18 @@ export const GatsbyLink = styled(Link)`
 `
 
 export const AboutContainer = styled.div`
-    margin: 2em 4em;
-
-    @media (max-width: 750px) {
-        margin: 2em 3em;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 50em;
+    margin: 4em auto 0 ;
+    
+    @media (max-width: 1000px) {
+        width: 90%;
     }
 
-    @media (max-width: 600px) {
-        margin: 2em 2em;
-    }
-
-    @media (max-width: 450px) {
-        margin: 2em 1em;
-    }
 `
 
 export const AboutTitle = styled.h1`
@@ -53,4 +53,9 @@ export const SubTitle = styled.h2`
 
 export const Description = styled.p`
     color: ${props => props.theme.secondary};
+
+`
+
+export const PersonalContent = styled(BlockContent)`
+    line-height: 1.6em;
 `

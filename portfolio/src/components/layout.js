@@ -19,17 +19,17 @@ const Light = {
 }
 
 const Dark = {
-  main: '#121212',
+  main: '#222222',
   secondary: '#ffffff',
   accent: '#26f7fd',
   accent2: '#26c7fd',
-  accent3: '#222222',
-  hover: '#333333',
+  accent3: '#333333',
+  hover: '#444444',
   green: ' #39ff14',
   yellow: '#faf752',
   red: '#ff476d',
   button: '#AAAAAA',
-  lightLine: '#333333'
+  lightLine: '#555555'
 }
 
 const themes = {
@@ -52,7 +52,7 @@ export const GlobalStyles = createGlobalStyle`
 
 export default function Layout({children, path}) {
 
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState('dark')
 
   return (
     <>

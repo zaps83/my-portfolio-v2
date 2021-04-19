@@ -170,6 +170,8 @@ export const Image = styled.div`
 
 export const PostContent = styled(BlockContent)`
     margin: 0 1em;
+    line-height: 1.6em;
+    font-size: 1.1em;
 
     @media (max-width: 450px) {
         margin: 0;
