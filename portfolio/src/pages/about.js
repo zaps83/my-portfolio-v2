@@ -10,7 +10,6 @@ export default function About ({ data }) {
         <>
             <S.AboutContainer>
                 <S.AboutTitle>Steven Zapart</S.AboutTitle>
-                <S.SubTitle>Full-Stack Developer</S.SubTitle>
                 <S.Description>
                 <S.PersonalContent 
                     blocks={data.allSanityAuthor.edges[0].node._rawAbout} 

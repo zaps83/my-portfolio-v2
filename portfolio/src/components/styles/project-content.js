@@ -33,8 +33,8 @@ export const ProjectContainer =styled.div`
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;    
     border: .1em solid #999999;
     border-radius: 1em;
-    margin: 1em 3em;
-    padding: 0 0 2em;
+    margin: 1em 3em 4em;
+    padding: 0;
 
     &:active {
         @media (max-width: 1024px) {
@@ -156,11 +156,11 @@ export const Button = styled.a`
 
 export const Body = styled.div`
     border-top: .15em solid;
-    padding: 1em 0;
+    padding: 1em 0 0;
     margin: 0 2em;
 
-    @media (max-width: 900px) {
-        margin: 0 1em;
+    @media (max-width: 450px) {
+        margin: 0 1em 2em;
     }
 `
 
@@ -171,7 +171,7 @@ export const Date = styled.div`
 
 export const Description = styled(BlockContent)`
     width: 90%;
-    padding: .5em 0 2em;
+    padding: .5em 0 0;
     margin: .5em 0 0;
 `
 

@@ -45,6 +45,7 @@ export const AboutContainer = styled.div`
 
 export const AboutTitle = styled.h1`
     color: ${props => props.theme.secondary};
+    margin-bottom: 1em;
 `
 
 export const SubTitle = styled.h2`

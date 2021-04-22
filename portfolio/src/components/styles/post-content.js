@@ -239,7 +239,7 @@ export const DateAndTitle = styled.div`
 `
 
 export const PostTitle = styled.h2`
-    margin: .25em 0;
+    margin: .25em 0 1em;
 
     @media (max-width: 900px) {
         margin: .3em 0 .7em;

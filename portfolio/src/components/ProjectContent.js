@@ -51,12 +51,13 @@ const ProjectContent = ({ page, data }) => {
                                     height="auto" /> :
                                 <S.Image image={project.mainImage.asset.fluid.src} alt='' />}
                             <S.Buttons>
-                                <S.Button target='_blank' rel="noreferrer" href={project.visitSite} >
+                                {project.visitSite ? (<S.Button target='_blank' rel="noreferrer" href={project.visitSite} >
                                     Visit Site
-                                </S.Button>
-                                <S.Button target='_blank' rel="noreferrer" href={project.viewCode} >
+                                </S.Button>): null}
+                                
+                                {project.viewCode ? (<S.Button target='_blank' rel="noreferrer" href={project.viewCode} >
                                     View Code
-                                </S.Button>
+                                </S.Button>) : null}
                                 {project.video ?
                                     <S.Button onClick={() => activateDemo(project.title)} >
                                         {demo[project.title] ? 'Stop' : 'Watch'} Demo
@@ -72,12 +73,16 @@ const ProjectContent = ({ page, data }) => {
                             serializers={serializer} 
                             projectId='ldqg7s9d' 
                             dataset='production'/>
-                            {project.relatedPosts.length ? <S.ReadAbout>Read More About This Project</S.ReadAbout> : null}
-                            <S.ReadAboutLinks>
-                                {project.relatedPosts.map(({ postInfo }) => (
-                                    <S.ReadAboutLink key={postInfo.postLink} to={postInfo.postLink}>{postInfo.postName}</S.ReadAboutLink>
-                                ))}    
-                            </S.ReadAboutLinks>
+                            {project.relatedPosts.length ? (
+                                <>
+                                    <S.ReadAbout>Read More About This Project</S.ReadAbout>
+                                    <S.ReadAboutLinks>
+                                    {project.relatedPosts.map(({ postInfo }) => (
+                                        <S.ReadAboutLink key={postInfo.postLink} to={postInfo.postLink}>{postInfo.postName}</S.ReadAboutLink>
+                                    ))}    
+                                    </S.ReadAboutLinks>
+                                </>
+                            ) : null}
                             </S.Body>
                     </S.ProjectContainer>
                 )})}

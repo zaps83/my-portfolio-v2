@@ -19,17 +19,17 @@ const Light = {
 }
 
 const Dark = {
-  main: '#222222',
+  main: '#121212',
   secondary: '#ffffff',
   accent: '#26f7fd',
   accent2: '#26c7fd',
-  accent3: '#333333',
-  hover: '#444444',
+  accent3: '#222222',
+  hover: '#333333',
   green: ' #39ff14',
   yellow: '#faf752',
   red: '#ff476d',
   button: '#AAAAAA',
-  lightLine: '#555555'
+  lightLine: '#333333'
 }
 
 const themes = {
