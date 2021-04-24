@@ -5,19 +5,22 @@ import { serializer } from './serializer'
 
 const ProjectContent = ({ page, data }) => {
 
-    let test
+    const sortedData = []
 
-    const projectData = data.allSanityProject.edges
-        .sort((a, b) => new Date(b.node.publishedAt) - new Date(a.node.publishedAt))
+    for (data of data.allSanityProject.edges) {
+        if (data.node.title === 'Netflix Clone') sortedData[0] = data
+        if (data.node.title === 'NBA Stats Visualization') sortedData[1] = data
+        if (data.node.title === 'ECommerce Store') sortedData[2] = data
+        if (data.node.title === 'Chat App') sortedData[3] = data
+        if (data.node.title === 'ZapsCode (This Website)') sortedData[4] = data
+    }
 
-    const homeData = projectData.filter((value) => value.node.title === 'Netflix Clone' || value.node.title === 'NBA Stats Visualization')
-
-    const currentData = page === 'home' ? homeData : projectData
+    page === 'home' && sortedData.splice(2)
 
     const demoData = {}
 
-    for (let i = 0; i < currentData.length; i++) {
-      demoData[currentData[i].node.title] = false
+    for (let i = 0; i < sortedData.length; i++) {
+        demoData[sortedData[i].node.title] = false
     }
 
     const [demo, setDemo] = useState(demoData)
@@ -37,7 +40,7 @@ const ProjectContent = ({ page, data }) => {
         <>
         <S.Container>
             <S.Grid>
-                {currentData.map(({ node: project }) => {
+                {sortedData.map(({ node: project }) => {
                 return (
                     <S.ProjectContainer key={project.title}>
                         <S.ProjectTitle>
@@ -61,7 +64,7 @@ const ProjectContent = ({ page, data }) => {
                                     View Code
                                 </S.Button>) : null}
                                 {project.video ?
-                                    <S.Button onClick={() => activateDemo(project.title)} >
+                                    <S.Button onClick={() => activateDemo(project.title)}>
                                         {demo[project.title] ? 'Stop' : 'Watch'} Demo
                                     </S.Button> : null}
                             </S.Buttons>

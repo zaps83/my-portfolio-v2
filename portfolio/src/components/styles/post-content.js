@@ -190,7 +190,7 @@ export const Difficulty = styled.div`
 `
 
 export const List = styled.div`
-    margin: 0 0 1em;
+    margin: 0 .5em 1em;
 
     @media (max-width: 900px) {
         line-height: 1em;
