@@ -5,6 +5,8 @@ import { serializer } from './serializer'
 
 const ProjectContent = ({ page, data }) => {
 
+    let test
+
     const projectData = data.allSanityProject.edges
         .sort((a, b) => new Date(b.node.publishedAt) - new Date(a.node.publishedAt))
 
