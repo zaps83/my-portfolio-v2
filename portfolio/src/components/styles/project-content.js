@@ -142,11 +142,17 @@ export const Button = styled.a`
     background-color: ${props => props.theme.accent};
     color: #333333;
 
-    &:hover {
-        background-color: ${props => props.theme.accent2};
-   
+    &:active {
+        @media (max-width: 1024px) {
+            background-color: ${props => props.theme.accent2};
+        }
     }
 
+    &:hover {
+        @media (min-width: 1024px) {
+            background-color: ${props => props.theme.accent2};
+        }
+    }
 
     @media (max-width: 600px) {
         font-size: .8em;

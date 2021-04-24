@@ -30,7 +30,7 @@ export const NavBar = ({ theme, setTheme, children, path }) => {
     const linkTabs = []
     addTab(linkTabs, GithubIcon, 'https://github.com/zaps83', 'Github')
     addTab(linkTabs, LinkedinIcon, 'https://www.linkedin.com/in/steven-zapart-59777a152/', 'Linkedin')
-    addTab(linkTabs, DownloadIcon, '/Test_PDF.pdf', 'Resume')
+    addTab(linkTabs, DownloadIcon, '/Steven Zapart Resume.pdf', 'Resume')
 
     function addTab(container, icon, page, display) {
         container.push({
@@ -65,7 +65,7 @@ export const NavBar = ({ theme, setTheme, children, path }) => {
                 <S.SocialLink
                     href={page}
                     target='_blank'
-                    download='steven-zapart-resume'
+                    download='Steven Zapart Resume'
                     key={display}>
                     <S.Inner location={location}>
                         <S.Icon icon={icon} />
