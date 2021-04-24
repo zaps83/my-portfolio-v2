@@ -43,9 +43,7 @@ export const ProjectContainer =styled.div`
     }
 
     &:hover {
-        @media (min-width: 1024px) {
-            background-color: ${props => props.theme.hover};
-        }
+        background-color: ${props => props.theme.hover};
 
         @media (min-width: 450px) {
             transform: scale(1.015);
@@ -149,9 +147,7 @@ export const Button = styled.a`
     }
 
     &:hover {
-        @media (min-width: 1024px) {
-            background-color: ${props => props.theme.accent2};
-        }
+        background-color: ${props => props.theme.accent2};
     }
 
     @media (max-width: 600px) {

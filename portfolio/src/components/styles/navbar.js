@@ -77,9 +77,7 @@ export const GatsbyLink = styled(Link)`
     color: ${props => props.theme.secondary};
 
     &:hover ${GatsbyInner} {
-        @media (min-width: 1024px) {
-            background-color: ${props => props.theme.hover};
-        }
+        background-color: ${props => props.theme.hover};
     }
 
     &:active ${GatsbyInner} {
@@ -98,9 +96,7 @@ export const SocialLink = styled.a`
     color: ${props => props.theme.secondary};
 
     &:hover ${Inner} {
-        @media (min-width: 1024px) {
-            background-color: ${props => props.theme.hover};
-        }
+        background-color: ${props => props.theme.hover};
     }
 
     &:active ${Inner} {
@@ -213,9 +209,7 @@ const Toggle = styled.button`
         border-radius: 0;
     }
     &:hover {
-        @media (min-width: 1024px) {
-            background-color: ${props => props.theme.hover};
-        }
+        background-color: ${props => props.theme.hover};
     }
     &:active {
         @media (max-width: 1024px) {
@@ -233,9 +227,7 @@ const DarkMode = styled.div`
         display: none;
     }
     &:hover ${Inner} {
-        @media (min-width: 1024px) {
-            background-color: ${props => props.theme.hover};
-        }
+        background-color: ${props => props.theme.hover};
     }
 
     &:active ${Inner} {

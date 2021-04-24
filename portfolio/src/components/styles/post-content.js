@@ -70,10 +70,7 @@ export const GatsbyLink = styled(Link)`
     }
 
     &:hover {
-        @media (min-width: 1024px) {
-            background-color: ${props => props.theme.hover};
-        }
-
+        background-color: ${props => props.theme.hover};
 
         @media (min-width: 450px) {
             transform: scale(1.015);
@@ -104,9 +101,7 @@ export const GatsbyLink = styled(Link)`
     }
 
     &:hover ${Body} {
-        @media (min-width: 1024px) {
-            background-color: ${props => props.theme.hover};
-        }
+        background-color: ${props => props.theme.hover};
     }
 `
 
