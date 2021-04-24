@@ -35,7 +35,7 @@ export const AboutContainer = styled.div`
     align-items: flex-start;
     flex-direction: column;
     width: 50em;
-    margin: 4em auto 0 ;
+    margin: 4em auto 0;
     
     @media (max-width: 1000px) {
         width: 90%;
