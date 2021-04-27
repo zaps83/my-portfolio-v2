@@ -36,10 +36,10 @@ export const ProjectContainer =styled.div`
     margin: 1em 3em 4em;
     padding: 0;
 
-    &:active {
+/*     &:active {
         @media (max-width: 1024px) {
             background-color: ${props => props.theme.hover};
-        }
+        } */
     }
 
     &:hover {

@@ -94,10 +94,10 @@ export const GatsbyLink = styled(Link)`
         }
     }
 
-    &:active ${Body} {
+/*     &:active ${Body} {
         @media (max-width: 1024px) {
             background-color: ${props => props.theme.hover};
-        }
+        } */
     }
 
     &:hover ${Body} {

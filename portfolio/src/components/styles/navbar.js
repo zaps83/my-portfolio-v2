@@ -80,10 +80,10 @@ export const GatsbyLink = styled(Link)`
         background-color: ${props => props.theme.hover};
     }
 
-    &:active ${GatsbyInner} {
+/*     &:active ${GatsbyInner} {
         @media (max-width: 1024px) {
             background-color: ${props => props.theme.hover};
-        }
+        } */
     }
 `
 
@@ -211,10 +211,10 @@ const Toggle = styled.button`
     &:hover {
         background-color: ${props => props.theme.hover};
     }
-    &:active {
+/*     &:active {
         @media (max-width: 1024px) {
             background-color: ${props => props.theme.hover};
-        }
+        } */
     }
 `
 
