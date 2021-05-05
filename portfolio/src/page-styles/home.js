@@ -15,7 +15,7 @@ export const SectionBottom = styled.div`
     margin: 1em auto 4em;
     padding: 0 0 4em;
     width: 90%;
-    border-bottom: ${props => props.section === 'projects' ? 'none' : `.15em solid ${props.theme.lightLine}`};
+    border-bottom: ${props => props.section === 'posts' ? 'none' : `.15em solid ${props.theme.lightLine}`};
     padding-bottom: 4em;
 
 `

@@ -4,6 +4,7 @@ import * as S from './styles/post'
 import { serializer } from '../components/serializer'
 import { faChevronLeft as ArrowIcon } from '@fortawesome/free-solid-svg-icons'
 import { algorithm } from '../components/AlgorithmIdentifier'
+import { Helmet } from "react-helmet"
 
 export const query = graphql`
 query ($slug: String) {
@@ -35,6 +36,11 @@ query ($slug: String) {
 
 const SinglePage = ({ data, theme }) => (
     <>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>{data.sanityPost.title ? `${data.sanityPost.title} | ` : 'Post | '}ZapsCode</title>
+            <link rel="canonical" href="http://zapscode.com" />
+        </Helmet>
         <S.Container>
             <S.Heading>
                 <S.MobileContainer>

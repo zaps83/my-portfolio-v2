@@ -82,6 +82,7 @@ export const Bullet = styled.div`
     display: inline;
     margin: 0 .5em;
     font-size: .8em;
+    line-height: 2em;
 
     &:first-of-type {
         margin-left: 0;
@@ -126,6 +127,7 @@ export const Difficulty = styled.div`
     display: inline;
     font-size: .8em;
     font-weight: 800;
+    margin-left: .5em;
 `
 
 export const HeaderContainer = styled.div`

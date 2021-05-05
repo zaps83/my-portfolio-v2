@@ -2,12 +2,18 @@ import React from 'react'
 import * as S from '../page-styles/home'
 import { graphql } from 'gatsby'
 import { serializer } from '../components/serializer'
+import { Helmet } from "react-helmet"
 
 
 export default function About ({ data }) {
 
     return (
         <>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>About | ZapsCode</title>
+            <link rel="canonical" href="http://zapscode.com" />
+          </Helmet>
             <S.AboutContainer>
                 <S.AboutTitle>Steven Zapart</S.AboutTitle>
                 <S.Description>

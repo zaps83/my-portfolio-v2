@@ -23,9 +23,10 @@ export const NavBar = ({ theme, setTheme, children, path }) => {
 
     const navTabs = []
     addTab(navTabs, HomeIcon, '/', 'Home')
-    addTab(navTabs, AboutIcon, '/about', 'About')
-    addTab(navTabs, PostIcon, '/posts', 'Posts')
     addTab(navTabs, ProjectIcon, '/projects', 'Projects')
+    addTab(navTabs, PostIcon, '/posts', 'Posts')
+    addTab(navTabs, AboutIcon, '/about', 'About')
+
 
     const linkTabs = []
     addTab(linkTabs, GithubIcon, 'https://github.com/zaps83', 'Github')
