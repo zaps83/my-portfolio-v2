@@ -39,7 +39,7 @@ const SinglePage = ({ data, theme }) => (
         <Helmet>
             <meta charSet="utf-8" />
             <title>{data.sanityPost.title ? `${data.sanityPost.title} | ` : 'Post | '}ZapsCode</title>
-            <link rel="canonical" href="http://zapscode.com" />
+            <link rel="canonical" href="https://zapscode.com" />
         </Helmet>
         <S.Container>
             <S.Heading>

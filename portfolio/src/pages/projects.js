@@ -11,7 +11,7 @@ export default function Project ({ data }) {
           <Helmet>
             <meta charSet="utf-8" />
             <title>Projects | ZapsCode</title>
-            <link rel="canonical" href="http://zapscode.com" />
+            <link rel="canonical" href="https://zapscode.com" />
           </Helmet>
             <S.Title>Projects</S.Title>
             <ProjectContent page='projects' data={data}/>

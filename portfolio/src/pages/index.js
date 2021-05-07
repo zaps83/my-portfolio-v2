@@ -12,7 +12,7 @@ export default function App({ data }) {
       <Helmet>
         <meta charSet="utf-8" />
         <title>ZapsCode</title>
-        <link rel="canonical" href="http://zapscode.com" />
+        <link rel="canonical" href="https://zapscode.com" />
       </Helmet>
       <S.AboutContainer>
         <S.AboutTitle>Welcome to ZapsCode</S.AboutTitle>
