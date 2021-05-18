@@ -11,8 +11,9 @@ const ProjectContent = ({ page, data }) => {
         if (data.node.title === 'Netflix Clone') sortedData[0] = data
         if (data.node.title === 'NBA Stats Visualization') sortedData[1] = data
         if (data.node.title === 'ECommerce Store') sortedData[2] = data
-        if (data.node.title === 'Chat App') sortedData[3] = data
-        if (data.node.title === 'ZapsCode (This Website)') sortedData[4] = data
+        if (data.node.title === 'Instagram Clone App') sortedData[3] = data
+        if (data.node.title === 'Chat App') sortedData[4] = data
+        if (data.node.title === 'ZapsCode (This Website)') sortedData[5] = data
     }
 
     page === 'home' && sortedData.splice(2)
