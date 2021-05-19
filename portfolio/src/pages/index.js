@@ -32,10 +32,10 @@ export default function App({ data }) {
       <S.SectionBottom >
         <S.GatsbyLink to='projects'>See more projects</S.GatsbyLink>
       </S.SectionBottom>
-      <S.Title>Latest Posts</S.Title>
+      <S.Title>Latest Blog Posts</S.Title>
       <PostContent page='home' data={data}/>
       <S.SectionBottom section='posts'>
-        <S.GatsbyLink to='posts'>See more posts</S.GatsbyLink>
+        <S.GatsbyLink to='posts'>See more blog posts</S.GatsbyLink>
       </S.SectionBottom>
     </>
   )

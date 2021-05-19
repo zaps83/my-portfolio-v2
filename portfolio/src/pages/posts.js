@@ -9,11 +9,11 @@ export default function Post ({ data }) {
         <>
           <Helmet>
             <meta charSet="utf-8" />
-            <title>Posts | ZapsCode</title>
+            <title>Blog Posts | ZapsCode</title>
             <link rel="canonical" href="https://zapscode.com" />
           </Helmet>
-            <S.Title>Posts</S.Title>
-            <PostContent page='posts' data={data}/>
+          <S.Title>Blog Posts</S.Title>
+          <PostContent page='posts' data={data}/>
         </>
     )
 }

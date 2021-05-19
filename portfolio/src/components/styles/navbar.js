@@ -82,6 +82,10 @@ export const GatsbyLink = styled(Link)`
         }
     }
 
+    @media (max-width: 550px) {
+        font-size: .8em;
+    }
+
 `
 
 export const SocialLink = styled.a`
@@ -97,7 +101,6 @@ export const SocialLink = styled.a`
             background-color: ${props => props.theme.hover};
         }
     }
-
 
     &:last-of-type {
         margin-right: 1.25em;
