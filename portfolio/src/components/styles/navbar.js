@@ -77,14 +77,11 @@ export const GatsbyLink = styled(Link)`
     color: ${props => props.theme.secondary};
 
     &:hover ${GatsbyInner} {
-        background-color: ${props => props.theme.hover};
+        @media (min-width: 450px) {
+            background-color: ${props => props.theme.hover};
+        }
     }
 
-/*     &:active ${GatsbyInner} {
-        @media (max-width: 1024px) {
-            background-color: ${props => props.theme.hover};
-        } */
-    }
 `
 
 export const SocialLink = styled.a`
@@ -96,14 +93,11 @@ export const SocialLink = styled.a`
     color: ${props => props.theme.secondary};
 
     &:hover ${Inner} {
-        background-color: ${props => props.theme.hover};
-    }
-
-    &:active ${Inner} {
-        @media (max-width: 1024px) {
+        @media (min-width: 450px) {
             background-color: ${props => props.theme.hover};
         }
     }
+
 
     &:last-of-type {
         margin-right: 1.25em;

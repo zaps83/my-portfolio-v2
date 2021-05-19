@@ -91,7 +91,7 @@ export const Image = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-size: 100%;
-    border: .1em solid ${props => props.theme.secondary};
+    border: .1em none ${props => props.theme.secondary};
 
     @media (max-width: 600px) {
         padding: 5.4em 10em;
