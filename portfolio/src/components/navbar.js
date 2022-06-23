@@ -32,7 +32,7 @@ export const NavBar = ({ theme, setTheme, children, path }) => {
     addTab(linkTabs, GithubIcon, 'https://github.com/zaps83', 'Github')
     addTab(linkTabs, LinkedinIcon, 'https://www.linkedin.com/in/steven-zapart-59777a152/', 'Linkedin')
     // addTab(linkTabs, DownloadIcon, '/Steven Zapart Resume.pdf', 'Resume')
-    // new
+
     function addTab(container, icon, page, display) {
         container.push({
             display: display,
