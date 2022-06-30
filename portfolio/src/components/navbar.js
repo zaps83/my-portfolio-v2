@@ -40,6 +40,7 @@ export const NavBar = ({ theme, setTheme, children, path }) => {
             icon: icon
         })
     }
+    // a
 
     const NavTabs = navTabs.map(({ icon, page, display }) => {
         return (
